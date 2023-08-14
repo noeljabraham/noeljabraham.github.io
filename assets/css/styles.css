@@ -202,6 +202,19 @@ img {
   font-size: var(--big-font-size);
   margin-bottom: var(--mb-5);
 }
+@keyframes swipe {
+  0% {
+      transform: translateX(100%);
+  }
+  100% {
+      transform: translateX(0);
+  }
+}
+
+.home__title-transition {
+  opacity: 0;
+  animation: swipe 0.5s ease-in-out;
+}
 
 .home__title-color {
   color: var(--first-color);

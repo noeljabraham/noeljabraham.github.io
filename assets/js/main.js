@@ -54,3 +54,24 @@ sr.reveal('.home__data, .about__img, .skills__subtitle, .skills__text',{});
 sr.reveal('.home__img, .about__subtitle, .about__text, .skills__img',{delay: 400}); 
 sr.reveal('.home__social-icon',{ interval: 200}); 
 sr.reveal('.skills__data, .work__img, .contact__input',{interval: 200}); 
+
+
+
+const titles = ["UX Designer🔅", "Tech Enthusiast🔰", "Developer💤"];
+let titleIndex = 0;
+
+function updateTitle() {
+    const titleElement = document.getElementById("title-placeholder");
+    titleElement.textContent = titles[titleIndex];
+    titleElement.classList.add("home__title-transition");
+
+    // Remove the swipe animation class after the animation is complete
+    titleElement.addEventListener("animationend", () => {
+        titleElement.classList.remove("home__title-transition");
+    }, { once: true });
+
+    titleIndex = (titleIndex + 1) % titles.length;
+}
+
+// Update title every 3 seconds
+setInterval(updateTitle, 3000);
