@@ -31,13 +31,10 @@
       --border: #e6eaf0;
       --shadow: 0 12px 30px rgba(2,6,23,.08);
     }
-    * { box-sizing: border-box; }
     html, body { margin:0; padding:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: var(--bg); color: var(--text); }
     a { color: var(--brand); text-decoration: none; }
     a:hover { text-decoration: underline; }
     .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-
-    /* NAV */
     header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(10px); background: color-mix(in oklab, var(--bg) 85%, transparent); border-bottom: 1px solid var(--border); }
     .nav { display:flex; align-items:center; justify-content:space-between; height:64px; }
     .logo { display:flex; gap:10px; align-items:center; font-weight: 800; letter-spacing:.3px; }
@@ -48,52 +45,19 @@
     .nav-actions { display:flex; gap:8px; align-items:center; }
     .btn { display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border:1px solid var(--border); border-radius:12px; background: var(--bg-elev); color: var(--text); box-shadow: var(--shadow); cursor:pointer; }
     .btn.primary { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color:#021018; border-color: transparent; font-weight:600; }
-
-    /* HERO */
-    .hero { padding: 90px 0 40px; display:grid; grid-template-columns: 1.2fr .8fr; gap: 32px; align-items:center; }
-    .hero .kicker { color: var(--brand-2); font-weight: 700; letter-spacing: .3px; }
-    .hero h1 { font-size: clamp(32px, 4.5vw, 56px); line-height: 1.05; margin:10px 0 14px; }
-    .hero p { color: var(--muted); font-size: clamp(16px, 2vw, 18px); }
-    .hero-card { background: radial-gradient(90% 120% at 100% 0%, color-mix(in oklab, var(--brand) 16%, transparent) 0, transparent 60%), var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 22px; box-shadow: var(--shadow); }
-    .grid-2 { display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-top:18px; }
-
-    /* SECTIONS */
     section { padding: 56px 0; border-top: 1px solid var(--border); }
     h2.section-title { font-size: 28px; margin: 0 0 18px; }
     .subtext { color: var(--muted); }
-
-    /* CARDS */
-    .card { background: var(--card); border:1px solid var(--border); border-radius:16px; padding:18px; box-shadow: var(--shadow); }
+    .card { background: var(--card); border:1px solid var(--border); border-radius:16px; padding:18px; box-shadow: var(--shadow); margin-bottom: 20px; }
     .cards { display:grid; grid-template-columns: repeat(12,1fr); gap:16px; }
     .span-6 { grid-column: span 6; }
-    .span-4 { grid-column: span 4; }
-    .span-12 { grid-column: span 12; }
-
-    /* TIMELINE */
-    .timeline { position:relative; margin-left:6px; }
-    .timeline::before { content:""; position:absolute; left:8px; top:0; bottom:0; width:2px; background: color-mix(in oklab, var(--brand) 30%, var(--border)); border-radius:2px; }
-    .t-item { position:relative; padding-left:26px; margin: 0 0 18px; }
-    .t-item::before { content:""; position:absolute; left:0; top:.6em; width:14px; height:14px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); border-radius:50%; box-shadow: 0 0 0 4px color-mix(in oklab, var(--brand) 30%, transparent); }
-    .t-role { font-weight: 700; }
-    .t-meta { color: var(--muted); font-size: 14px; }
-    .t-bullets { margin: 6px 0 0 0; padding-left: 18px; color: var(--text); }
-
-    /* LISTS */
+    .hero { padding: 90px 0 40px; display:grid; grid-template-columns: 1.2fr .8fr; gap: 32px; align-items:center; }
+    .hero img { width:100%; border-radius:20px; box-shadow: var(--shadow); }
     .tags { display:flex; flex-wrap: wrap; gap:8px; }
     .tag { padding: 6px 10px; font-size: 13px; border: 1px solid var(--border); border-radius: 999px; background: var(--bg-elev); }
-
-    /* FOOTER */
-    footer { padding: 32px 0 64px; color: var(--muted); text-align:center; border-top:1px solid var(--border); }
-
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; }
-      .cards { grid-template-columns: repeat(6,1fr); }
-      .span-6 { grid-column: span 6; }
-      .span-4 { grid-column: span 6; }
-      .span-12 { grid-column: span 6; }
-      nav ul { display:none; }
-    }
+    .socials { display:flex; gap:18px; justify-content:center; margin-top:20px; }
+    .socials a img { width:32px; height:32px; opacity:0.7; transition:opacity .2s, transform .2s; }
+    .socials a img:hover { opacity:1; transform:scale(1.1); }
   </style>
 </head>
 <body>
@@ -103,225 +67,134 @@
         <span class="dot" aria-hidden="true"></span>
         <span>Noel J Abraham</span>
       </div>
-      <nav aria-label="Primary">
+      <nav>
         <ul>
           <li><a href="#about">About</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#projects">Projects</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#education">Education</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
       <div class="nav-actions">
-        <button id="themeBtn" class="btn" title="Toggle theme" aria-label="Toggle theme">🌗</button>
+        <button id="themeBtn" class="btn">🌗</button>
         <a class="btn primary" href="Noel J Abraham_Resume1.pdf" download>Download Résumé</a>
       </div>
     </div>
   </header>
 
   <main class="container">
-    <!-- HERO -->
-    <section class="hero" id="home">
-      <div>
-        <div class="kicker">Android • Security • Cloud</div>
-        <h1>Android Developer with a strong cybersecurity foundation</h1>
-        <p>
-          Adaptable and results‑driven CSE graduate focused on secure development, threat simulation, and
-          digital risk management. I build mobile apps with performance, privacy, and protection in mind.
-        </p>
-        <div class="grid-2">
-          <a class="btn primary" href="#contact">Hire Me</a>
-          <a class="btn" href="#projects">See Projects</a>
-        </div>
-      </div>
-      <div class="hero-card" role="img" aria-label="Decorative card">
-        <div style="display:grid; gap:10px;">
-          <div class="tags">
-            <span class="tag">Kotlin/Android</span>
-            <span class="tag">Secure Coding</span>
-            <span class="tag">Firebase</span>
-            <span class="tag">OWASP</span>
-            <span class="tag">Elastic SIEM</span>
-            <span class="tag">SQL</span>
-          </div>
-          <div class="subtext">Based in Kerala, India • Open to Android & Security Roles</div>
-          <div>
-            <a href="mailto:noeljabraham2023@gmail.com" class="btn" style="width:100%; justify-content:center">Email me</a>
-          </div>
-        </div>
-      </div>
+<section class="hero" id="home">
+  <div>
+    <div class="kicker">Software • Security • Cloud</div>
+    <h1>Software Engineer with a strong cybersecurity foundation</h1>
+    <p>Building fast, secure, and reliable software — where performance meets protection.</p>
+
+    <div style="margin-top:24px; display:flex; flex-wrap:wrap; gap:10px;">
+      <span class="tag">💻 Flutter</span>
+      <span class="tag">🔒 Cybersecurity</span>
+      <span class="tag">☁️ Cloud Computing</span>
+      <span class="tag">📱 Mobile Development</span>
+        <span class="tag">🚀 Innovation</span>
+        <span class="tag">🧠 Continuous Learning</span>
+        <span class="tag">🤝 Collaboration</span>
+    </div>
+
+    <p style="margin-top:24px; font-style:italic; color:var(--muted);">
+     “Success is not final, failure is not fatal: it is the courage to continue that counts.” — Winston Churchill
+    </p>
+  </div>
+
+  <div>
+    <img src="assets/img/image.png" alt="Noel J Abraham" />
+  </div>
+</section>
+
+
+<section id="about">
+  <h2 class="section-title">About</h2>
+  <p class="subtext">
+    I am a dedicated and results-driven Computer Science Engineering graduate with a strong foundation in 
+    Software Engineering, Cybersecurity, Mobile Application Development, and Data Engineering.
+  </p>
+  <p class="subtext">
+    Currently, I work as a <strong>Mobile Android Developer at Stesalit Systems Limited</strong> in Kolkata, India, 
+    where I focus on building secure, high-performance mobile applications that meet modern industry standards.
+  </p>
+  <p class="subtext">
+    My professional experience includes developing scalable Android applications, ensuring secure coding practices, 
+    integrating APIs, and improving app performance. I also have hands-on exposure to cybersecurity concepts such as 
+    vulnerability assessment, penetration testing, and cloud-based security solutions.
+  </p>
+  <p class="subtext">
+    Committed to continuous learning and innovation, I aim to bridge the gap between software development and cybersecurity, 
+    creating impactful and resilient digital solutions. I am passionate about emerging technologies and aspire to contribute 
+    to projects that enhance digital safety and user experience.
+  </p>
+</section>
+
     </section>
 
-    <!-- ABOUT -->
-    <section id="about">
-      <h2 class="section-title">About</h2>
-      <p class="subtext">I’m committed to protecting digital infrastructure through proactive strategies and continuous learning.</p>
-    </section>
+   <section id="experience">
+  <h2 class="section-title">Experience</h2>
 
-    <!-- EXPERIENCE -->
-    <section id="experience">
-      <h2 class="section-title">Experience</h2>
-      <div class="timeline">
-        <div class="t-item card">
-          <div class="t-role">Mobile Android Developer • Stesalit Systems Limited</div>
-          <div class="t-meta">Kolkata, India • Sept 2024 – Present</div>
-          <ul class="t-bullets">
-            <li>Built and maintained Android apps emphasizing performance, secure coding, and data protection.</li>
-            <li>Designed scalable, modular architectures; wrote technical documentation.</li>
-            <li>Implemented auth, RBAC, secure data handling; hardened APIs with tokens, HTTPS, validation.</li>
-          </ul>
-        </div>
-        <div class="t-item card">
-          <div class="t-role">Mobile Application Developer Intern • Zaburb Pvt Ltd</div>
-          <div class="t-meta">Bangalore, India • Jun 2023 – Apr 2024</div>
-          <ul class="t-bullets">
-            <li>Contributed to an accessibility‑focused app for elderly users with privacy‑first design.</li>
-            <li>Integrated location services and real‑time updates; improved UX.</li>
-          </ul>
-        </div>
-        <div class="t-item card">
-          <div class="t-role">Android Lead • Google Developer Students Club, AJCE</div>
-          <div class="t-meta">Kerala, India • Sep 2023 – May 2024</div>
-          <ul class="t-bullets">
-            <li>Led Android team; mentored peers on secure development and data handling.</li>
-            <li>Planned events including cybersecurity workshops and awareness sessions.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <div class="card">
+    <p><strong>Mobile Android Developer • Stesalit Systems Limited</strong><br>Kolkata, India • Sept 2024 – Present</p>
+    <ul>
+      <li>Developing secure, scalable Android applications with Kotlin and Firebase.</li>
+      <li>Focusing on performance, modular architecture, and secure API integrations.</li>
+    </ul>
+  </div>
 
-    <!-- PROJECTS -->
-    <section id="projects">
-      <h2 class="section-title">Projects</h2>
-      <div class="cards">
-        <article class="card span-6">
-          <h3>Elastic Stack SIEM Configuration & Management</h3>
-          <p class="t-meta">Apr 2025</p>
-          <p>Configured Elastic SIEM in a homelab, built log pipelines, simulated traffic with Nmap, and practiced incident investigation & alert tuning.</p>
-          <div class="tags">
-            <span class="tag">Elastic</span><span class="tag">Kali</span><span class="tag">Nmap</span>
-          </div>
-        </article>
-        <article class="card span-6">
-          <h3>Phishing Attack Simulator using Gophish</h3>
-          <p class="t-meta">Mar 2025</p>
-          <p>Deployed Gophish on Railway, created templates & landing pages, analyzed campaign metrics to improve awareness.</p>
-          <div class="tags">
-            <span class="tag">Gophish</span><span class="tag">Railway</span><span class="tag">Email</span>
-          </div>
-        </article>
-        <article class="card span-6">
-          <h3>Web App Security Assessment via SQL Injection</h3>
-          <p class="t-meta">Feb 2025</p>
-          <p>Used SQLMap against a test target to enumerate DBs and document findings in a controlled, ethical setup.</p>
-          <div class="tags">
-            <span class="tag">SQLmap</span><span class="tag">OWASP</span>
-          </div>
-        </article>
-        <article class="card span-6">
-          <h3>Android Apps (Selected)</h3>
-          <p>Performance‑focused, secure Android features; auth flows, RBAC, and encrypted data handling.</p>
-          <div class="tags">
-            <span class="tag">Kotlin</span><span class="tag">Jetpack</span><span class="tag">Firebase</span>
-          </div>
-        </article>
-      </div>
-    </section>
+  <div class="card">
+    <p><strong>Mobile Application Developer Intern • Zaburb Pvt Ltd</strong><br>Bangalore, India • Jun 2023 – Apr 2024</p>
+    <ul>
+      <li>Built accessibility-focused apps for elderly users with a privacy-first design approach.</li>
+      <li>Integrated real-time location and improved UI/UX for smoother user experiences.</li>
+    </ul>
+  </div>
 
-    <!-- SKILLS -->
-    <section id="skills">
-      <h2 class="section-title">Skills</h2>
-      <div class="cards">
-        <div class="card span-4">
-          <h3>Technical</h3>
-          <div class="tags">
-            <span class="tag">Android</span><span class="tag">Python</span><span class="tag">C</span><span class="tag">Dart</span><span class="tag">SQL</span><span class="tag">HTML/CSS</span><span class="tag">Secure Coding</span>
-          </div>
-        </div>
-        <div class="card span-4">
-          <h3>Security & Tools</h3>
-          <div class="tags">
-            <span class="tag">Elastic SIEM</span><span class="tag">Kali</span><span class="tag">Wireshark</span><span class="tag">Burp</span><span class="tag">OWASP ZAP</span><span class="tag">SQLmap</span><span class="tag">Gophish</span>
-            <span class="tag">AWS</span><span class="tag">Azure</span><span class="tag">GCP</span><span class="tag">Firebase</span>
-          </div>
-        </div>
-        <div class="card span-4">
-          <h3>Soft Skills</h3>
-          <div class="tags">
-            <span class="tag">Analytical Thinking</span><span class="tag">Problem Solving</span><span class="tag">Communication</span>
-            <span class="tag">Leadership</span><span class="tag">Adaptability</span>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="card">
+    <p><strong>Android Team Lead • GDG on Campus AJCE</strong><br>Kerala, India • Aug 2023 – Jun 2024</p>
+    <ul>
+      <li>Led Android projects, mentored students, and conducted workshops on secure mobile development.</li>
+      <li>Collaborated with team members to organize tech events and coding sessions.</li>
+    </ul>
+  </div>
 
-    <!-- CERTIFICATIONS -->
-    <section id="certs">
-      <h2 class="section-title">Certifications</h2>
-      <div class="cards">
-        <div class="card span-6">
-          <ul class="t-bullets">
-            <li>Google Cybersecurity Professional Certificate (2024)</li>
-            <li>Cisco: Introduction to Cybersecurity (2024)</li>
-            <li>TCS/Forage: Cybersecurity Analyst Simulation (2024)</li>
-            <li>Linux Foundation: Intro to GitOps (2024)</li>
-          </ul>
-        </div>
-        <div class="card span-6">
-          <ul class="t-bullets">
-            <li>Oracle: OCI Foundations 1 (2024)</li>
-            <li>Python Full Stack Development – QSpiders (2024)</li>
-            <li>Offenso: Intro to Ethical Hacking (2023)</li>
-            <li>UX Design Foundations – Google (2024)</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <div class="card">
+    <p><strong>Coordinator • Arcane Society</strong><br>Kerala, India • Jun 2023 – Mar 2024</p>
+    <ul>
+      <li>Managed cybersecurity awareness sessions and ethical hacking workshops.</li>
+      <li>Coordinated events promoting digital safety and ethical computing.</li>
+    </ul>
+  </div>
 
-    <!-- EDUCATION -->
-    <section id="education">
-      <h2 class="section-title">Education</h2>
-      <div class="cards">
-        <div class="card span-6">
-          <h3>B.Tech in Computer Science & Engineering</h3>
-          <p class="t-meta">Amal Jyothi College of Engineering • Aug 2020 – Jun 2024</p>
-        </div>
-        <div class="card span-6">
-          <h3>Higher Secondary & Secondary</h3>
-          <p class="t-meta">Holy Angels' EMHSS (2019–2020) • St. Thomas Residential Central School (2017–2018)</p>
-        </div>
-      </div>
-    </section>
+  <div class="card">
+    <p><strong>Volunteer • ACM AJCE Student Chapter</strong><br>Kerala, India • Sep 2023 – Mar 2024</p>
+    <ul>
+      <li>Supported events promoting computer science and open-source contributions.</li>
+      <li>Collaborated with peers to organize workshops and technical talks.</li>
+    </ul>
+  </div>
+</section>
 
-    <!-- CONTACT -->
     <section id="contact">
       <h2 class="section-title">Contact</h2>
-      <div class="cards">
-        <div class="card span-12">
-          <p class="subtext">Reach out for roles, collaborations, or just to say hi.</p>
-          <div style="display:grid; gap:12px; max-width:560px;">
-            <a class="btn" href="mailto:noeljabraham2023@gmail.com">📮 noeljabraham2023@gmail.com</a>
-            <a class="btn" href="tel:+919645951639">📞 +91 96459 51639</a>
-            <a class="btn" href="https://www.linkedin.com/in/noel-j-abraham-69412b1b0/" target="_blank" rel="noreferrer">🔗 LinkedIn</a>
-            <a class="btn" href="https://github.com/noeljabraham" target="_blank" rel="noreferrer">💻 GitHub</a>
-          </div>
-        </div>
+      <p class="subtext">Connect with me on my platforms:</p>
+      <div class="socials">
+        <a href="https://github.com/noeljabraham" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub"></a>
+        <a href="https://www.linkedin.com/in/noel-j-abraham-69412b1b0/" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"></a>
+        <a href="mailto:noeljabraham2023@gmail.com" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email"></a>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container">
-      © <span id="y"></span> Noel J Abraham • Built with HTML/CSS/JS
-    </div>
-  </footer>
+  <!-- <footer>
+    <div class="container">© <span id="y"></span> Noel J Abraham</div>
+  </footer> -->
 
   <script>
-    // Year
     document.getElementById('y').textContent = new Date().getFullYear();
-
-    // Theme toggle
     const themeBtn = document.getElementById('themeBtn');
     const stored = localStorage.getItem('theme');
     if (stored === 'light') document.documentElement.classList.add('light');
@@ -329,23 +202,6 @@
       document.documentElement.classList.toggle('light');
       localStorage.setItem('theme', document.documentElement.classList.contains('light') ? 'light' : 'dark');
     });
-
-    // Active nav link on scroll
-    const links = Array.from(document.querySelectorAll('header nav a'));
-    const sections = links.map(a => document.querySelector(a.getAttribute('href')));
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        const i = sections.indexOf(entry.target);
-        if (i >= 0) {
-          const link = links[i];
-          if (entry.isIntersecting) {
-            links.forEach(l => l.classList.remove('active'));
-            link.classList.add('active');
-          }
-        }
-      });
-    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.01 });
-    sections.forEach(s => s && obs.observe(s));
   </script>
 </body>
 </html>
