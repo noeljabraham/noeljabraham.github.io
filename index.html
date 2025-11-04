@@ -1,211 +1,351 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Noel J Abraham – Portfolio</title>
+  <meta name="description" content="Portfolio of Noel J Abraham – Android developer with a security focus." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0d0f;
+      --bg-elev: #101319;
+      --text: #e7edf3;
+      --muted: #aab4bf;
+      --brand: #6ae3ff;
+      --brand-2: #79ffa8;
+      --card: #11161d;
+      --border: #202630;
+      --shadow: 0 10px 30px rgba(0,0,0,.3);
+    }
+    .light {
+      --bg: #ffffff;
+      --bg-elev: #f6f7f9;
+      --text: #0e1217;
+      --muted: #485261;
+      --brand: #0066ff;
+      --brand-2: #0bb07b;
+      --card: #ffffff;
+      --border: #e6eaf0;
+      --shadow: 0 12px 30px rgba(2,6,23,.08);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin:0; padding:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: var(--bg); color: var(--text); }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-        <link rel="stylesheet" href="assets/css/styles.css">
+    /* NAV */
+    header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(10px); background: color-mix(in oklab, var(--bg) 85%, transparent); border-bottom: 1px solid var(--border); }
+    .nav { display:flex; align-items:center; justify-content:space-between; height:64px; }
+    .logo { display:flex; gap:10px; align-items:center; font-weight: 800; letter-spacing:.3px; }
+    .logo .dot { width:10px; height:10px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); border-radius:50%; box-shadow: 0 0 20px color-mix(in oklab, var(--brand) 60%, transparent); }
+    nav ul { display:flex; gap:20px; list-style:none; margin:0; padding:0; }
+    nav a { padding:8px 12px; border-radius:10px; }
+    nav a.active, nav a:hover { background: var(--bg-elev); text-decoration:none; }
+    .nav-actions { display:flex; gap:8px; align-items:center; }
+    .btn { display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border:1px solid var(--border); border-radius:12px; background: var(--bg-elev); color: var(--text); box-shadow: var(--shadow); cursor:pointer; }
+    .btn.primary { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color:#021018; border-color: transparent; font-weight:600; }
 
-        <!-- =====BOX ICONS===== -->
-        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    /* HERO */
+    .hero { padding: 90px 0 40px; display:grid; grid-template-columns: 1.2fr .8fr; gap: 32px; align-items:center; }
+    .hero .kicker { color: var(--brand-2); font-weight: 700; letter-spacing: .3px; }
+    .hero h1 { font-size: clamp(32px, 4.5vw, 56px); line-height: 1.05; margin:10px 0 14px; }
+    .hero p { color: var(--muted); font-size: clamp(16px, 2vw, 18px); }
+    .hero-card { background: radial-gradient(90% 120% at 100% 0%, color-mix(in oklab, var(--brand) 16%, transparent) 0, transparent 60%), var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 22px; box-shadow: var(--shadow); }
+    .grid-2 { display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-top:18px; }
 
-        <title>Noel J Abraham</title>
-    </head>
-    <body>
-        <!--===== HEADER =====-->
-        <header class="l-header">
-            <nav class="nav bd-grid">
-                <div>
-                    <a href="#" class="nav__logo">Noel J Abraham</a>
-                </div>
+    /* SECTIONS */
+    section { padding: 56px 0; border-top: 1px solid var(--border); }
+    h2.section-title { font-size: 28px; margin: 0 0 18px; }
+    .subtext { color: var(--muted); }
 
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list">
-                        <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
-                        <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                        <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
-                        <li class="nav__item"><a href="#work" class="nav__link">Work</a></li>
-                        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
-                    </ul>
-                </div>
+    /* CARDS */
+    .card { background: var(--card); border:1px solid var(--border); border-radius:16px; padding:18px; box-shadow: var(--shadow); }
+    .cards { display:grid; grid-template-columns: repeat(12,1fr); gap:16px; }
+    .span-6 { grid-column: span 6; }
+    .span-4 { grid-column: span 4; }
+    .span-12 { grid-column: span 12; }
 
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class='bx bx-menu'></i>
-                </div>
-            </nav>
-        </header>
+    /* TIMELINE */
+    .timeline { position:relative; margin-left:6px; }
+    .timeline::before { content:""; position:absolute; left:8px; top:0; bottom:0; width:2px; background: color-mix(in oklab, var(--brand) 30%, var(--border)); border-radius:2px; }
+    .t-item { position:relative; padding-left:26px; margin: 0 0 18px; }
+    .t-item::before { content:""; position:absolute; left:0; top:.6em; width:14px; height:14px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); border-radius:50%; box-shadow: 0 0 0 4px color-mix(in oklab, var(--brand) 30%, transparent); }
+    .t-role { font-weight: 700; }
+    .t-meta { color: var(--muted); font-size: 14px; }
+    .t-bullets { margin: 6px 0 0 0; padding-left: 18px; color: var(--text); }
 
-        <main class="l-main">
-          <!--===== HOME =====-->
-          <section class="home bd-grid" id="home">
-            <div class="home__data">
-                <h1 class="home__title">Hi,<br>I am <span class="home__title-color">Noel</span><br>Software Engineer</h1>
-                <a href="#contact" class="button">Contact</a>
-            </div>
+    /* LISTS */
+    .tags { display:flex; flex-wrap: wrap; gap:8px; }
+    .tag { padding: 6px 10px; font-size: 13px; border: 1px solid var(--border); border-radius: 999px; background: var(--bg-elev); }
 
-        <div class="home__social">
-        <a href="https://www.linkedin.com/in/noel-j-abraham-69412b1b0/" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
-        <a href="https://www.behance.net/noelj1" class="home__social-icon"><i class='bx bxl-behance' ></i></a>
-        <a href="https://github.com/noeljabraham" class="home__social-icon"><i class='bx bxl-github' ></i></a>
+    /* FOOTER */
+    footer { padding: 32px 0 64px; color: var(--muted); text-align:center; border-top:1px solid var(--border); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .cards { grid-template-columns: repeat(6,1fr); }
+      .span-6 { grid-column: span 6; }
+      .span-4 { grid-column: span 6; }
+      .span-12 { grid-column: span 6; }
+      nav ul { display:none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo" aria-label="logo">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Noel J Abraham</span>
+      </div>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button id="themeBtn" class="btn" title="Toggle theme" aria-label="Toggle theme">🌗</button>
+        <a class="btn primary" href="Noel J Abraham_Resume1.pdf" download>Download Résumé</a>
+      </div>
     </div>
+  </header>
 
-    <div class="home__img">
-        <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <mask id="mask0" mask-type="alpha">
-                <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
-            </mask>
-            <g mask="url(#mask0)">
-                <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
-                <image class="home__blob-img" href="assets/img/perfil.png"/>
-            </g>
-        </svg>
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div>
+        <div class="kicker">Android • Security • Cloud</div>
+        <h1>Android Developer with a strong cybersecurity foundation</h1>
+        <p>
+          Adaptable and results‑driven CSE graduate focused on secure development, threat simulation, and
+          digital risk management. I build mobile apps with performance, privacy, and protection in mind.
+        </p>
+        <div class="grid-2">
+          <a class="btn primary" href="#contact">Hire Me</a>
+          <a class="btn" href="#projects">See Projects</a>
+        </div>
+      </div>
+      <div class="hero-card" role="img" aria-label="Decorative card">
+        <div style="display:grid; gap:10px;">
+          <div class="tags">
+            <span class="tag">Kotlin/Android</span>
+            <span class="tag">Secure Coding</span>
+            <span class="tag">Firebase</span>
+            <span class="tag">OWASP</span>
+            <span class="tag">Elastic SIEM</span>
+            <span class="tag">SQL</span>
+          </div>
+          <div class="subtext">Based in Kerala, India • Open to Android & Security Roles</div>
+          <div>
+            <a href="mailto:noeljabraham2023@gmail.com" class="btn" style="width:100%; justify-content:center">Email me</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2 class="section-title">About</h2>
+      <p class="subtext">I’m committed to protecting digital infrastructure through proactive strategies and continuous learning.</p>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <h2 class="section-title">Experience</h2>
+      <div class="timeline">
+        <div class="t-item card">
+          <div class="t-role">Mobile Android Developer • Stesalit Systems Limited</div>
+          <div class="t-meta">Kolkata, India • Sept 2024 – Present</div>
+          <ul class="t-bullets">
+            <li>Built and maintained Android apps emphasizing performance, secure coding, and data protection.</li>
+            <li>Designed scalable, modular architectures; wrote technical documentation.</li>
+            <li>Implemented auth, RBAC, secure data handling; hardened APIs with tokens, HTTPS, validation.</li>
+          </ul>
+        </div>
+        <div class="t-item card">
+          <div class="t-role">Mobile Application Developer Intern • Zaburb Pvt Ltd</div>
+          <div class="t-meta">Bangalore, India • Jun 2023 – Apr 2024</div>
+          <ul class="t-bullets">
+            <li>Contributed to an accessibility‑focused app for elderly users with privacy‑first design.</li>
+            <li>Integrated location services and real‑time updates; improved UX.</li>
+          </ul>
+        </div>
+        <div class="t-item card">
+          <div class="t-role">Android Lead • Google Developer Students Club, AJCE</div>
+          <div class="t-meta">Kerala, India • Sep 2023 – May 2024</div>
+          <ul class="t-bullets">
+            <li>Led Android team; mentored peers on secure development and data handling.</li>
+            <li>Planned events including cybersecurity workshops and awareness sessions.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2 class="section-title">Projects</h2>
+      <div class="cards">
+        <article class="card span-6">
+          <h3>Elastic Stack SIEM Configuration & Management</h3>
+          <p class="t-meta">Apr 2025</p>
+          <p>Configured Elastic SIEM in a homelab, built log pipelines, simulated traffic with Nmap, and practiced incident investigation & alert tuning.</p>
+          <div class="tags">
+            <span class="tag">Elastic</span><span class="tag">Kali</span><span class="tag">Nmap</span>
+          </div>
+        </article>
+        <article class="card span-6">
+          <h3>Phishing Attack Simulator using Gophish</h3>
+          <p class="t-meta">Mar 2025</p>
+          <p>Deployed Gophish on Railway, created templates & landing pages, analyzed campaign metrics to improve awareness.</p>
+          <div class="tags">
+            <span class="tag">Gophish</span><span class="tag">Railway</span><span class="tag">Email</span>
+          </div>
+        </article>
+        <article class="card span-6">
+          <h3>Web App Security Assessment via SQL Injection</h3>
+          <p class="t-meta">Feb 2025</p>
+          <p>Used SQLMap against a test target to enumerate DBs and document findings in a controlled, ethical setup.</p>
+          <div class="tags">
+            <span class="tag">SQLmap</span><span class="tag">OWASP</span>
+          </div>
+        </article>
+        <article class="card span-6">
+          <h3>Android Apps (Selected)</h3>
+          <p>Performance‑focused, secure Android features; auth flows, RBAC, and encrypted data handling.</p>
+          <div class="tags">
+            <span class="tag">Kotlin</span><span class="tag">Jetpack</span><span class="tag">Firebase</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2 class="section-title">Skills</h2>
+      <div class="cards">
+        <div class="card span-4">
+          <h3>Technical</h3>
+          <div class="tags">
+            <span class="tag">Android</span><span class="tag">Python</span><span class="tag">C</span><span class="tag">Dart</span><span class="tag">SQL</span><span class="tag">HTML/CSS</span><span class="tag">Secure Coding</span>
+          </div>
+        </div>
+        <div class="card span-4">
+          <h3>Security & Tools</h3>
+          <div class="tags">
+            <span class="tag">Elastic SIEM</span><span class="tag">Kali</span><span class="tag">Wireshark</span><span class="tag">Burp</span><span class="tag">OWASP ZAP</span><span class="tag">SQLmap</span><span class="tag">Gophish</span>
+            <span class="tag">AWS</span><span class="tag">Azure</span><span class="tag">GCP</span><span class="tag">Firebase</span>
+          </div>
+        </div>
+        <div class="card span-4">
+          <h3>Soft Skills</h3>
+          <div class="tags">
+            <span class="tag">Analytical Thinking</span><span class="tag">Problem Solving</span><span class="tag">Communication</span>
+            <span class="tag">Leadership</span><span class="tag">Adaptability</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certs">
+      <h2 class="section-title">Certifications</h2>
+      <div class="cards">
+        <div class="card span-6">
+          <ul class="t-bullets">
+            <li>Google Cybersecurity Professional Certificate (2024)</li>
+            <li>Cisco: Introduction to Cybersecurity (2024)</li>
+            <li>TCS/Forage: Cybersecurity Analyst Simulation (2024)</li>
+            <li>Linux Foundation: Intro to GitOps (2024)</li>
+          </ul>
+        </div>
+        <div class="card span-6">
+          <ul class="t-bullets">
+            <li>Oracle: OCI Foundations 1 (2024)</li>
+            <li>Python Full Stack Development – QSpiders (2024)</li>
+            <li>Offenso: Intro to Ethical Hacking (2023)</li>
+            <li>UX Design Foundations – Google (2024)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <h2 class="section-title">Education</h2>
+      <div class="cards">
+        <div class="card span-6">
+          <h3>B.Tech in Computer Science & Engineering</h3>
+          <p class="t-meta">Amal Jyothi College of Engineering • Aug 2020 – Jun 2024</p>
+        </div>
+        <div class="card span-6">
+          <h3>Higher Secondary & Secondary</h3>
+          <p class="t-meta">Holy Angels' EMHSS (2019–2020) • St. Thomas Residential Central School (2017–2018)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <div class="cards">
+        <div class="card span-12">
+          <p class="subtext">Reach out for roles, collaborations, or just to say hi.</p>
+          <div style="display:grid; gap:12px; max-width:560px;">
+            <a class="btn" href="mailto:noeljabraham2023@gmail.com">📮 noeljabraham2023@gmail.com</a>
+            <a class="btn" href="tel:+919645951639">📞 +91 96459 51639</a>
+            <a class="btn" href="https://www.linkedin.com/in/noel-j-abraham-69412b1b0/" target="_blank" rel="noreferrer">🔗 LinkedIn</a>
+            <a class="btn" href="https://github.com/noeljabraham" target="_blank" rel="noreferrer">💻 GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="y"></span> Noel J Abraham • Built with HTML/CSS/JS
     </div>
-</section>
+  </footer>
 
+  <script>
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
 
-            <!--===== ABOUT =====-->
-            <section class="about section " id="about">
-                <h2 class="section-title">About</h2>
+    // Theme toggle
+    const themeBtn = document.getElementById('themeBtn');
+    const stored = localStorage.getItem('theme');
+    if (stored === 'light') document.documentElement.classList.add('light');
+    themeBtn.addEventListener('click', () => {
+      document.documentElement.classList.toggle('light');
+      localStorage.setItem('theme', document.documentElement.classList.contains('light') ? 'light' : 'dark');
+    });
 
-                <div class="about__container bd-grid">
-                    <div class="about__img">
-                        <img src="assets/img/about.jpg" alt="">
-                    </div>
-                    
-                    <div>
-                        <h2 class="about__subtitle">I'am Noel</h2>
-                        <p class="about__text">Driven Computer Science Engineering student with a keen interest in web development, software engineering, and cybersecurity. Proven dedication to ongoing learning and adept at devising inventive solutions for practical problems as a full-stack developer. With a solid understanding of cybersecurity concepts, including vulnerability assessment and penetration testing, I am aspiring to forge a thriving career in software engineering and cybersecurity. I'm eager to apply my expertise and drive positive change in the technology sector.</p>           
-                    </div>                                   
-                </div>
-            </section>
-
-            <!--===== SKILLS =====-->
-            <section class="skills section" id="skills">
-                <h2 class="section-title">Skills</h2>
-            
-                <div class="skills__container bd-grid">
-                    <div>
-                        <h2 class="skills__subtitle">Professional Skills</h2>
-                        <p class="skills__text">Proficient in a wide range of technical skills, including HTML5, CSS3, and Flutter, allowing for the creation of engaging and dynamic digital experiences. Skilled in UX/UI design, delivering impactful solutions and leaving a lasting impression on users.</p>
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <i class='bx bxl-html5 skills__icon'></i>
-                                <span class="skills__name">HTML5</span>
-                            </div>
-                            <div class="skills__bar skills__html">
-            
-                            </div>
-                            <div>
-                                <span class="skills__percentage">95%</span>
-                            </div>
-                        </div>
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <i class='bx bxl-css3 skills__icon'></i>
-                                <span class="skills__name">CSS3</span>
-                            </div>
-                            <div class="skills__bar skills__css">
-            
-                            </div>
-                            <div>
-                                <span class="skills__percentage">85%</span>
-                            </div>
-                        </div>
-                        <!-- New section for Flutter skill -->
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <!-- Add the Flutter icon class here -->
-                                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.0.7/css/boxicons.min.css">
-                                <i class="fa-brands fa-js"></i>
-                                <span class="skills__name">Javascipt</span>
-                            </div>
-                            <div class="skills__bar skills__flutter">
-                                <span class="skills__percentage" style="width: 75%;"></span>
-                            </div>
-                            <div>
-                                <span class="skills__percentage">75%</span>
-                            </div>
-                        </div>
-<!-- ... (rest of the code) ... -->
-
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <i class='bx bxs-paint skills__icon'></i>
-                                <span class="skills__name">UI/UX</span>
-                            </div>
-                            <div class="skills__bar skills__ux">
-                                
-                            </div>
-                            <div>
-                                <span class="skills__percentage">85%</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div>              
-                        <img src="assets/img/skills.jpg" alt="" class="skills__img">
-                    </div>
-                </div>
-            </section>
-            
-
-            <!--===== WORK =====-->
-            <section class="work section" id="work">
-                <h2 class="section-title">Work</h2>
-
-                <div class="work__container bd-grid">
-                    <a href="" class="work__img">
-                        <img src="assets/img/work1.jpg" alt="">
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="assets/img/work2.jpg" alt="">
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="assets/img/work3.jpg" alt="">
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="assets/img/work4.jpg" alt="">
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="assets/img/work5.jpg" alt="">
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="assets/img/work6.jpg" alt="">
-                    </a>
-                </div>
-            </section>
-
-            <!--===== CONTACT =====-->
-<section class="contact section" id="contact">
-    <h2 class="section-title">Contact</h2>
-
-    <div class="contact__container bd-grid">
-        <form action="https://formspree.io/f/mrgwedwd" method="post" class="contact__form">
-            <input type="text" name="name" placeholder="Name" class="contact__input">
-            <input type="email" name="email" placeholder="Email" class="contact__input">
-            <textarea name="message" cols="30" rows="10" class="contact__input"></textarea>
-            <input type="submit" value="Send" class="contact__button button">
-        </form>
-    </div>
-</section>
-
-
-        <!--===== FOOTER =====-->
-        <footer class="footer">
-            <p class="footer__title">Noel J Abraham</p>
-            <div class="footer__social">
-                <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" class="footer__icon"><i class='bx bxl-facebook' ></i></a>
-                <a href="https://www.youtube.com/watch?v=h3uBr0CCm58" class="footer__icon"><i class='bx bxl-instagram' ></i></a>
-                <a href="https://www.youtube.com/watch?v=mx6MzHYzEfY" class="footer__icon"><i class='bx bxl-twitter' ></i></a>
-            </div>
-            <p class="footer__copy">&#169; noeljabraham. All rigths reserved</p>
-        </footer>
-
-
-        <!--===== SCROLL REVEAL =====-->
-        <script src="https://unpkg.com/scrollreveal"></script>
-
-        <!--===== MAIN JS =====-->
-        <script src="assets/js/main.js"></script>
-    </body>
+    // Active nav link on scroll
+    const links = Array.from(document.querySelectorAll('header nav a'));
+    const sections = links.map(a => document.querySelector(a.getAttribute('href')));
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const i = sections.indexOf(entry.target);
+        if (i >= 0) {
+          const link = links[i];
+          if (entry.isIntersecting) {
+            links.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+          }
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.01 });
+    sections.forEach(s => s && obs.observe(s));
+  </script>
+</body>
 </html>
