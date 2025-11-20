@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,20 +8,10 @@
   <meta name="description" content="Portfolio of Noel J Abraham – Android developer with a security focus." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <style>
     :root {
-      --bg: #0b0d0f;
-      --bg-elev: #101319;
-      --text: #e7edf3;
-      --muted: #aab4bf;
-      --brand: #6ae3ff;
-      --brand-2: #79ffa8;
-      --card: #11161d;
-      --border: #202630;
-      --shadow: 0 10px 30px rgba(0,0,0,.3);
-    }
-    .light {
       --bg: #ffffff;
       --bg-elev: #f6f7f9;
       --text: #0e1217;
@@ -29,38 +20,246 @@
       --brand-2: #0bb07b;
       --card: #ffffff;
       --border: #e6eaf0;
-      --shadow: 0 12px 30px rgba(2,6,23,.08);
+      --shadow: 0 12px 30px rgba(2, 6, 23, .08);
     }
-    
-    html, body { margin:0; padding:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: var(--bg); color: var(--text); }
-    a { color: var(--brand); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-    header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(10px); background: color-mix(in oklab, var(--bg) 85%, transparent); border-bottom: 1px solid var(--border); }
-    .nav { display:flex; align-items:center; justify-content:space-between; height:64px; }
-    .logo { display:flex; gap:10px; align-items:center; font-weight: 800; letter-spacing:.3px; }
-    .logo .dot { width:10px; height:10px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); border-radius:50%; box-shadow: 0 0 20px color-mix(in oklab, var(--brand) 60%, transparent); }
-    nav ul { display:flex; gap:20px; list-style:none; margin:0; padding:0; }
-    nav a { padding:8px 12px; border-radius:10px; }
-    nav a.active, nav a:hover { background: var(--bg-elev); text-decoration:none; }
-    .nav-actions { display:flex; gap:8px; align-items:center; }
-    .btn { display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border:1px solid var(--border); border-radius:12px; background: var(--bg-elev); color: var(--text); box-shadow: var(--shadow); cursor:pointer; }
-    .btn.primary { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color:#021018; border-color: transparent; font-weight:600; }
-    section { padding: 56px 0; border-top: 1px solid var(--border); }
-    h2.section-title { font-size: 28px; margin: 0 0 18px; }
-    .subtext { color: var(--muted); }
-    .card { background: var(--card); border:1px solid var(--border); border-radius:16px; padding:18px; box-shadow: var(--shadow); margin-bottom: 20px; }
-    .cards { display:grid; grid-template-columns: repeat(12,1fr); gap:16px; }
-    .span-6 { grid-column: span 6; }
-    .hero { padding: 90px 0 40px; display:grid; grid-template-columns: 1.2fr .8fr; gap: 32px; align-items:center; }
-    .hero img { width:100%; border-radius:20px; box-shadow: var(--shadow); }
-    .tags { display:flex; flex-wrap: wrap; gap:8px; }
-    .tag { padding: 6px 10px; font-size: 13px; border: 1px solid var(--border); border-radius: 999px; background: var(--bg-elev); }
-    .socials { display:flex; gap:18px; justify-content:center; margin-top:20px; }
-    .socials a img { width:32px; height:32px; opacity:0.7; transition:opacity .2s, transform .2s; }
-    .socials a img:hover { opacity:1; transform:scale(1.1); }
+
+    /* Old dark theme (kept in case you add a toggle later) */
+    .dark {
+      --bg: #0b0d0f;
+      --bg-elev: #101319;
+      --text: #e7edf3;
+      --muted: #aab4bf;
+      --brand: #6ae3ff;
+      --brand-2: #79ffa8;
+      --card: #11161d;
+      --border: #202630;
+      --shadow: 0 10px 30px rgba(0, 0, 0, .3);
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      scroll-behavior: smooth;
+    }
+
+    a {
+      color: var(--brand);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: color-mix(in oklab, var(--bg) 85%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .logo {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      font-weight: 800;
+      letter-spacing: .3px;
+    }
+
+    .logo .dot {
+      width: 10px;
+      height: 10px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      border-radius: 50%;
+      box-shadow: 0 0 20px color-mix(in oklab, var(--brand) 60%, transparent);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      padding: 8px 12px;
+      border-radius: 10px;
+    }
+
+    nav a.active,
+    nav a:hover {
+      background: var(--bg-elev);
+      text-decoration: none;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--bg-elev);
+      color: var(--text);
+      box-shadow: var(--shadow);
+      cursor: pointer;
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      color: #021018;
+      border-color: transparent;
+      font-weight: 600;
+    }
+
+    section {
+      padding: 56px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    h2.section-title {
+      font-size: 28px;
+      margin: 0 0 18px;
+    }
+
+    .subtext {
+      color: var(--muted);
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+
+      /* NEW: smooth hover animation */
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    /* NEW: hover effect */
+    .card:hover {
+      transform: translateY(-6px);
+      background-color: var(--bg-elev);
+      border-color: color-mix(in oklab, var(--brand) 35%, var(--border));
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
+    }
+
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+    }
+
+    .span-6 {
+      grid-column: span 6;
+    }
+
+    .hero {
+      padding: 90px 0 40px;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .hero img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      padding: 6px 10px;
+      font-size: 13px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--bg-elev);
+    }
+
+    .socials {
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .socials a img {
+      width: 32px;
+      height: 32px;
+      opacity: 0.7;
+      transition: opacity .2s, transform .2s;
+    }
+
+    .socials a img:hover {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+
+    /* === Reveal animation classes === */
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Slightly faster for hero */
+    .hero.reveal {
+      transform: translateY(24px);
+      transition-duration: 0.8s;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
+
 <body>
   <header>
     <div class="container nav">
@@ -84,177 +283,182 @@
   </header>
 
   <main class="container">
-<section class="hero" id="home">
-  <div>
-    <div class="kicker">Software • Security • Cloud</div>
-    <h1>Software Engineer with a strong cybersecurity foundation</h1>
-    <p>Building fast, secure, and reliable software — where performance meets protection.</p>
+    <section class="hero reveal" id="home">
+      <div>
+        <div class="kicker">Software • Security • Cloud</div>
+        <h1>Software Engineer with a strong cybersecurity foundation</h1>
+        <p>Building fast, secure, and reliable software — where performance meets protection.</p>
 
-    <div style="margin-top:24px; display:flex; flex-wrap:wrap; gap:10px;">
-      <span class="tag">💻 Flutter</span>
-      <span class="tag">🔒 Cybersecurity</span>
-      <span class="tag">☁️ Cloud Computing</span>
-      <span class="tag">📱 Mobile Development</span>
-        <span class="tag">🚀 Innovation</span>
-        <span class="tag">🧠 Continuous Learning</span>
-        <span class="tag">🤝 Collaboration</span>
-    </div>
+        <div style="margin-top:24px; display:flex; flex-wrap:wrap; gap:10px;">
+          <span class="tag">💻 Flutter</span>
+          <span class="tag">🔒 Cybersecurity</span>
+          <span class="tag">☁️ Cloud Computing</span>
+          <span class="tag">📱 Mobile Development</span>
+          <span class="tag">🚀 Innovation</span>
+          <span class="tag">🧠 Continuous Learning</span>
+          <span class="tag">🤝 Collaboration</span>
+        </div>
 
-    <p style="margin-top:24px; font-style:italic; color:var(--muted);">
-     “Success is not final, failure is not fatal: it is the courage to continue that counts.” — Winston Churchill
-    </p>
-  </div>
+        <p style="margin-top:24px; font-style:italic; color:var(--muted);">
+          “Success is not final, failure is not fatal: it is the courage to continue that counts.” — Winston Churchill
+        </p>
+      </div>
 
-  <div>
-    <img src="assets/img/image.png" alt="Noel J Abraham" />
-  </div>
-</section>
-
-
-<section id="about">
-  <h2 class="section-title">About</h2>
-  <p class="subtext">
-    I am a dedicated and results-driven Computer Science Engineering graduate with a strong foundation in 
-    Software Engineering, Cybersecurity, Mobile Application Development, and Data Engineering.
-  </p>
-  <p class="subtext">
-    Currently, I work as a <strong>Mobile Android Developer at Stesalit Systems Limited</strong> in Kolkata, India, 
-    where I focus on building secure, high-performance mobile applications that meet modern industry standards.
-  </p>
-  <p class="subtext">
-    My professional experience includes developing scalable Android applications, ensuring secure coding practices, 
-    integrating APIs, and improving app performance. I also have hands-on exposure to cybersecurity concepts such as 
-    vulnerability assessment, penetration testing, and cloud-based security solutions.
-  </p>
-  <p class="subtext">
-    Committed to continuous learning and innovation, I aim to bridge the gap between software development and cybersecurity, 
-    creating impactful and resilient digital solutions. I am passionate about emerging technologies and aspire to contribute 
-    to projects that enhance digital safety and user experience.
-  </p>
-</section>
-
+      <div>
+        <img src="assets/img/image.png" alt="Noel J Abraham" />
+      </div>
     </section>
 
-   <section id="experience">
-  <h2 class="section-title">Experience</h2>
+    <section id="about">
+      <h2 class="section-title reveal">About</h2>
+      <p class="subtext reveal">
+        I am a dedicated and results-driven Computer Science Engineering graduate with a strong foundation in
+        Software Engineering, Cybersecurity, Mobile Application Development, and Data Engineering.
+      </p>
+      <p class="subtext reveal">
+        Currently, I work as a <strong>Mobile Android Developer at Stesalit Systems Limited</strong> in Kolkata, India,
+        where I focus on building secure, high-performance mobile applications that meet modern industry standards.
+      </p>
+      <p class="subtext reveal">
+        My professional experience includes developing scalable Android applications, ensuring secure coding practices,
+        integrating APIs, and improving app performance. I also have hands-on exposure to cybersecurity concepts such as
+        vulnerability assessment, penetration testing, and cloud-based security solutions.
+      </p>
+      <p class="subtext reveal">
+        Committed to continuous learning and innovation, I aim to bridge the gap between software development and
+        cybersecurity,
+        creating impactful and resilient digital solutions. I am passionate about emerging technologies and aspire to
+        contribute
+        to projects that enhance digital safety and user experience.
+      </p>
+    </section>
 
-  <div class="card">
-    <p><strong>Mobile Android Developer • Stesalit Systems Limited</strong><br>Kolkata, India • Sept 2024 – Present</p>
-    <ul>
-      <li>Developing secure, scalable Android applications with Kotlin and Firebase.</li>
-      <li>Focusing on performance, modular architecture, and secure API integrations.</li>
-    </ul>
-  </div>
+    <section id="experience">
+      <h2 class="section-title reveal">Experience</h2>
 
-  <div class="card">
-    <p><strong>Mobile Application Developer Intern • Zaburb Pvt Ltd</strong><br>Bangalore, India • Jun 2023 – Apr 2024</p>
-    <ul>
-      <li>Built accessibility-focused apps for elderly users with a privacy-first design approach.</li>
-      <li>Integrated real-time location and improved UI/UX for smoother user experiences.</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <p><strong>Android Team Lead • GDG on Campus AJCE</strong><br>Kerala, India • Aug 2023 – Jun 2024</p>
-    <ul>
-      <li>Led Android projects, mentored students, and conducted workshops on secure mobile development.</li>
-      <li>Collaborated with team members to organize tech events and coding sessions.</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <p><strong>Coordinator • Arcane Society</strong><br>Kerala, India • Jun 2023 – Mar 2024</p>
-    <ul>
-      <li>Managed cybersecurity awareness sessions and ethical hacking workshops.</li>
-      <li>Coordinated events promoting digital safety and ethical computing.</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <p><strong>Volunteer • ACM AJCE Student Chapter</strong><br>Kerala, India • Sep 2023 – Mar 2024</p>
-    <ul>
-      <li>Supported events promoting computer science and open-source contributions.</li>
-      <li>Collaborated with peers to organize workshops and technical talks.</li>
-    </ul>
-  </div>
-</section>
-<section id="projects">
-  <h2 class="section-title">Projects</h2>
-
-  <div class="cards">
-    <!-- Elastic SIEM -->
-    <article class="card span-6">
-      <div style="display:flex;justify-content:space-between;gap:12px;">
-        <h3 style="margin:0;">Elastic Stack SIEM Configuration & Management</h3>
-        <small class="subtext">Aug 2024</small>
+      <div class="card reveal">
+        <p><strong>Mobile Android Developer • Stesalit Systems Limited</strong><br>Kolkata, India • Sept 2024 – Present
+        </p>
+        <ul>
+          <li>Developing secure, scalable Android applications with Kotlin and Firebase.</li>
+          <li>Focusing on performance, modular architecture, and secure API integrations.</li>
+        </ul>
       </div>
-      <ul style="margin:8px 0 0 18px;">
-        <li>Set up Elastic SIEM in a homelab with log collection & security event monitoring.</li>
-        <li>Generated/analysed traffic (Kali, nmap) and wrote queries to investigate incidents.</li>
-      </ul>
-      <div class="tags" style="margin-top:10px;">
-        <span class="tag">Elastic</span><span class="tag">SIEM</span><span class="tag">Kali</span>
-      </div>
-    </article>
 
-    <!-- ParkinCare -->
-    <article class="card span-6">
-      <div style="display:flex;justify-content:space-between;gap:12px;">
-        <h3 style="margin:0;">ParkinCare: Deep Learning model to predict Parkinson's</h3>
-        <small class="subtext">Jun 2023 – Apr 2024</small>
+      <div class="card reveal">
+        <p><strong>Mobile Application Developer Intern • Zaburb Pvt Ltd</strong><br>Bangalore, India • Jun 2023 – Apr
+          2024</p>
+        <ul>
+          <li>Built accessibility-focused apps for elderly users with a privacy-first design approach.</li>
+          <li>Integrated real-time location and improved UI/UX for smoother user experiences.</li>
+        </ul>
       </div>
-      <ul style="margin:8px 0 0 18px;">
-        <li>Integrated handwriting, voice, and MRI data using TensorFlow/Keras.</li>
-        <li>Built a Python/Flask backend for processing and deployment.</li>
-        <li><strong>Achievement:</strong> Received funding from APJ Abdul Kalam Technological University.</li>
-      </ul>
-      <div class="tags" style="margin-top:10px;">
-        <span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">Flask</span>
-      </div>
-    </article>
 
-    <!-- Gophish -->
-    <article class="card span-6">
-      <div style="display:flex;justify-content:space-between;gap:12px;">
-        <h3 style="margin:0;">Phishing Attack Simulator using Gophish</h3>
-        <small class="subtext">Aug 2024</small>
+      <div class="card reveal">
+        <p><strong>Android Team Lead • GDG on Campus AJCE</strong><br>Kerala, India • Aug 2023 – Jun 2024</p>
+        <ul>
+          <li>Led Android projects, mentored students, and conducted workshops on secure mobile development.</li>
+          <li>Collaborated with team members to organize tech events and coding sessions.</li>
+        </ul>
       </div>
-      <ul style="margin:8px 0 0 18px;">
-        <li>Ran phishing simulations with Gophish to improve awareness and resilience.</li>
-        <li>Deployed on Railway, created templates/landing pages, analysed campaign metrics.</li>
-      </ul>
-      <div class="tags" style="margin-top:10px;">
-        <span class="tag">Gophish</span><span class="tag">Railway</span><span class="tag">Email Security</span>
-      </div>
-    </article>
 
-    <!-- QuitM8 -->
-    <article class="card span-6">
-      <div style="display:flex;justify-content:space-between;gap:12px;">
-        <h3 style="margin:0;">QuitM8 – Addiction Relief Application</h3>
-        <small class="subtext">Sep 2023 – Jan 2023</small>
+      <div class="card reveal">
+        <p><strong>Coordinator • Arcane Society</strong><br>Kerala, India • Jun 2023 – Mar 2024</p>
+        <ul>
+          <li>Managed cybersecurity awareness sessions and ethical hacking workshops.</li>
+          <li>Coordinated events promoting digital safety and ethical computing.</li>
+        </ul>
       </div>
-      <ul style="margin:8px 0 0 18px;">
-        <li>Designed and implemented an app to help users track specific addictions.</li>
-        <li>Provided reminders, alerts, and behavior insights to support better habits.</li>
-      </ul>
-      <div class="tags" style="margin-top:10px;">
-        <span class="tag">Mobile</span><span class="tag">UX</span>
+
+      <div class="card reveal">
+        <p><strong>Volunteer • ACM AJCE Student Chapter</strong><br>Kerala, India • Sep 2023 – Mar 2024</p>
+        <ul>
+          <li>Supported events promoting computer science and open-source contributions.</li>
+          <li>Collaborated with peers to organize workshops and technical talks.</li>
+        </ul>
       </div>
-    </article>
-  </div>
-</section>
+    </section>
+
+    <section id="projects">
+      <h2 class="section-title reveal">Projects</h2>
+
+      <div class="cards">
+        <!-- Elastic SIEM -->
+        <article class="card span-6 reveal">
+          <div style="display:flex;justify-content:space-between;gap:12px;">
+            <h3 style="margin:0;">Elastic Stack SIEM Configuration & Management</h3>
+            <small class="subtext">Aug 2024</small>
+          </div>
+          <ul style="margin:8px 0 0 18px;">
+            <li>Set up Elastic SIEM in a homelab with log collection & security event monitoring.</li>
+            <li>Generated/analysed traffic (Kali, nmap) and wrote queries to investigate incidents.</li>
+          </ul>
+          <div class="tags" style="margin-top:10px;">
+            <span class="tag">Elastic</span><span class="tag">SIEM</span><span class="tag">Kali</span>
+          </div>
+        </article>
+
+        <!-- ParkinCare -->
+        <article class="card span-6 reveal">
+          <div style="display:flex;justify-content:space-between;gap:12px;">
+            <h3 style="margin:0;">ParkinCare: Deep Learning model to predict Parkinson's</h3>
+            <small class="subtext">Jun 2023 – Apr 2024</small>
+          </div>
+          <ul style="margin:8px 0 0 18px;">
+            <li>Integrated handwriting, voice, and MRI data using TensorFlow/Keras.</li>
+            <li>Built a Python/Flask backend for processing and deployment.</li>
+            <li><strong>Achievement:</strong> Received funding from APJ Abdul Kalam Technological University.</li>
+          </ul>
+          <div class="tags" style="margin-top:10px;">
+            <span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">Flask</span>
+          </div>
+        </article>
+
+        <!-- Gophish -->
+        <article class="card span-6 reveal">
+          <div style="display:flex;justify-content:space-between;gap:12px;">
+            <h3 style="margin:0;">Phishing Attack Simulator using Gophish</h3>
+            <small class="subtext">Aug 2024</small>
+          </div>
+          <ul style="margin:8px 0 0 18px;">
+            <li>Ran phishing simulations with Gophish to improve awareness and resilience.</li>
+            <li>Deployed on Railway, created templates/landing pages, analysed campaign metrics.</li>
+          </ul>
+          <div class="tags" style="margin-top:10px;">
+            <span class="tag">Gophish</span><span class="tag">Railway</span><span class="tag">Email Security</span>
+          </div>
+        </article>
+
+        <!-- QuitM8 -->
+        <article class="card span-6 reveal">
+          <div style="display:flex;justify-content:space-between;gap:12px;">
+            <h3 style="margin:0;">QuitM8 – Addiction Relief Application</h3>
+            <small class="subtext">Sep 2023 – Jan 2023</small>
+          </div>
+          <ul style="margin:8px 0 0 18px;">
+            <li>Designed and implemented an app to help users track specific addictions.</li>
+            <li>Provided reminders, alerts, and behavior insights to support better habits.</li>
+          </ul>
+          <div class="tags" style="margin-top:10px;">
+            <span class="tag">Mobile</span><span class="tag">UX</span>
+          </div>
+        </article>
+      </div>
+    </section>
 
     <section id="contact">
-      <h2 class="section-title">Contact</h2>
-      <p class="subtext">Connect with me on my platforms:</p>
-      <div class="socials">
-        <a href="https://github.com/noeljabraham" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub"></a>
-        <a href="https://www.linkedin.com/in/noel-j-abraham-69412b1b0/" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"></a>
-        <a href="mailto:noeljabraham2023@gmail.com" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email"></a>
+      <h2 class="section-title reveal">Contact</h2>
+      <p class="subtext reveal">Connect with me on:</p>
+      <div class="socials reveal">
+        <a href="https://github.com/noeljabraham" target="_blank"><img
+            src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub"></a>
+        <a href="https://www.linkedin.com/in/noel-j-abraham-69412b1b0/" target="_blank"><img
+            src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"></a>
+        <a href="mailto:noeljabraham2023@gmail.com" target="_blank"><img
+            src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email"></a>
       </div>
     </section>
-    
+
   </main>
 
   <!-- <footer>
@@ -262,14 +466,61 @@
   </footer> -->
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-    const themeBtn = document.getElementById('themeBtn');
-    const stored = localStorage.getItem('theme');
-    if (stored === 'light') document.documentElement.classList.add('light');
-    themeBtn.addEventListener('click', () => {
-      document.documentElement.classList.toggle('light');
-      localStorage.setItem('theme', document.documentElement.classList.contains('light') ? 'light' : 'dark');
+    document.addEventListener('DOMContentLoaded', () => {
+      // Safe footer year update (only runs if #y exists)
+      const yearSpan = document.getElementById('y');
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
+
+      // Safe theme button logic (currently the button is commented out)
+      const themeBtn = document.getElementById('themeBtn');
+      if (themeBtn) {
+        const stored = localStorage.getItem('theme');
+        if (stored === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
+
+        themeBtn.addEventListener('click', () => {
+          document.documentElement.classList.toggle('dark');
+          localStorage.setItem(
+            'theme',
+            document.documentElement.classList.contains('dark') ? 'dark' : 'light'
+          );
+        });
+      }
+
+      // Scroll reveal animation
+      const revealEls = document.querySelectorAll('.reveal');
+
+      // Optional: staggered delay
+      revealEls.forEach((el, index) => {
+        el.style.transitionDelay = `${index * 0.06}s`;
+      });
+
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+              obs.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.15
+        }
+      );
+
+      revealEls.forEach(el => observer.observe(el));
+
+      // Ensure hero shows if at top on initial load
+      const hero = document.querySelector('.hero.reveal');
+      if (hero && window.scrollY < 40) {
+        hero.classList.add('in-view');
+      }
     });
   </script>
 </body>
+
 </html>
