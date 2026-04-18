@@ -73,21 +73,25 @@ function App() {
       <main className="container">
         <section className="hero reveal" id="home">
           <div>
-            <div className="kicker">Software - Security - Cloud</div>
-            <h1>Software Engineer with a strong cybersecurity foundation</h1>
+            <div className="kicker">
+              Software Engineer | AI Generalist | Cybersecurity
+            </div>
+            <h1>
+              Building secure, intelligent, and scalable digital products
+              across AI, mobile, and full-stack systems
+            </h1>
             <p>
               Building fast, secure, and reliable software - where performance
               meets protection.
             </p>
 
             <div className="hero-tags">
-              <span className="tag">Flutter</span>
-              <span className="tag">Cybersecurity</span>
-              <span className="tag">Cloud Computing</span>
-              <span className="tag">Mobile Development</span>
-              <span className="tag">Innovation</span>
-              <span className="tag">Continuous Learning</span>
-              <span className="tag">Collaboration</span>
+              <span className="tag">AI Generalist</span>
+              <span className="tag">InfoSec Enthusiast</span>
+              <span className="tag">Flutter Developer</span>
+              <span className="tag">Full-Stack Developer</span>
+              <span className="tag">Network Infrastructure</span>
+              <span className="tag">Google Cybersecurity Certified</span>
             </div>
 
             <p className="quote">
@@ -136,92 +140,83 @@ function App() {
 
           <div className="card reveal">
             <p>
-              <strong>Mobile Android Developer - Stesalit Systems Limited</strong>
+              <strong>Software Development Engineer</strong>
               <br />
-              Kolkata, India - Sept 2024 - Present
+              Stesalit Systems Limited - Kolkata, India
+              <br />
+              Sep 2024 - Present
             </p>
             <ul>
               <li>
-                Developing secure, scalable Android applications with Kotlin and
-                Firebase.
+                Designed and maintained production Android applications,
+                implementing clean architecture patterns and improving app
+                stability and performance.
               </li>
               <li>
-                Focusing on performance, modular architecture, and secure API
-                integrations.
+                Integrated RESTful APIs with token-based authentication, HTTPS
+                enforcement, and robust error handling to ensure reliable
+                client-server communication.
+              </li>
+              <li>
+                Collaborated in agile sprints, participating in code reviews,
+                sprint planning, and retrospectives to ship features on
+                schedule.
+              </li>
+              <li>
+                Documented system architecture and technical design decisions to
+                support long-term maintainability and onboarding of new team
+                members.
               </li>
             </ul>
           </div>
 
           <div className="card reveal">
             <p>
-              <strong>
-                Mobile Application Developer Intern - Zaburb Pvt Ltd
-              </strong>
+              <strong>Software Engineer Intern</strong>
               <br />
-              Bangalore, India - Jun 2023 - Apr 2024
+              Zaburb Pvt Ltd - Bangalore, India
+              <br />
+              Jun 2023 - Apr 2024
             </p>
             <ul>
               <li>
-                Built accessibility-focused apps for elderly users with a
-                privacy-first design approach.
+                Contributed to the development and testing of a location-based
+                mobile application, building features across the UI and data
+                layers.
               </li>
               <li>
-                Integrated real-time location and improved UI/UX for smoother
-                user experiences.
+                Designed and implemented data flows for handling sensitive user
+                information, ensuring privacy-compliant data storage and
+                transmission.
+              </li>
+              <li>
+                Applied secure API communication patterns and mobile design best
+                practices in collaboration with a cross-functional engineering
+                team.
               </li>
             </ul>
           </div>
 
           <div className="card reveal">
             <p>
-              <strong>Android Team Lead - GDG on Campus AJCE</strong>
+              <strong>Lead Android Developer</strong>
               <br />
-              Kerala, India - Aug 2023 - Jun 2024
+              Google Developer Student Club (GDSC), AJCE - Kerala, India
+              <br />
+              Sep 2023 - May 2024
             </p>
             <ul>
               <li>
-                Led Android projects, mentored students, and conducted
-                workshops on secure mobile development.
+                Led a team of Android developers to plan, build, and deliver
+                applications following industry-standard coding practices.
               </li>
               <li>
-                Collaborated with team members to organize tech events and
-                coding sessions.
-              </li>
-            </ul>
-          </div>
-
-          <div className="card reveal">
-            <p>
-              <strong>Coordinator - Arcane Society</strong>
-              <br />
-              Kerala, India - Jun 2023 - Mar 2024
-            </p>
-            <ul>
-              <li>
-                Managed cybersecurity awareness sessions and ethical hacking
-                workshops.
+                Mentored junior developers on Android architecture, Kotlin best
+                practices, and efficient use of Jetpack libraries.
               </li>
               <li>
-                Coordinated events promoting digital safety and ethical
-                computing.
-              </li>
-            </ul>
-          </div>
-
-          <div className="card reveal">
-            <p>
-              <strong>Volunteer - ACM AJCE Student Chapter</strong>
-              <br />
-              Kerala, India - Sep 2023 - Mar 2024
-            </p>
-            <ul>
-              <li>
-                Supported events promoting computer science and open-source
-                contributions.
-              </li>
-              <li>
-                Collaborated with peers to organize workshops and technical
-                talks.
+                Organized technical workshops and hands-on sessions, improving
+                team proficiency in Android development and DevOps tooling.
               </li>
             </ul>
           </div>
@@ -233,89 +228,256 @@ function App() {
           <div className="cards">
             <article className="card span-6 reveal">
               <div className="project-header">
-                <h3>Elastic Stack SIEM Configuration and Management</h3>
-                <small className="subtext">Aug 2024</small>
+                <h3>GAIL India Fleet App - Indian Government Project</h3>
+                <small className="subtext">Flutter | iOS TestFlight Beta</small>
               </div>
               <ul className="project-list">
                 <li>
-                  Set up Elastic SIEM in a homelab with log collection and
-                  security event monitoring.
+                  Designed and developed a Flutter-based fleet operations mobile
+                  application for GAIL India to monitor CNG logistics, station
+                  activity, route movement, and operational alerts across
+                  multiple user roles.
                 </li>
                 <li>
-                  Generated and analyzed traffic (Kali, nmap) and wrote queries
-                  to investigate incidents.
+                  Implemented role-based authentication and navigation for Super
+                  Admin, GA In-charge, MS Admin, DBS Admin, and driver
+                  workflows, with secure token storage, scoped access control,
+                  and dynamic dashboard rendering.
+                </li>
+                <li>
+                  Built live fleet monitoring and map-based visualization using
+                  Google Maps, covering geographical areas, mother/daughter
+                  stations, LCV locations, route layers, dry-out prediction
+                  views, queue status, trip schedules, and station-wise
+                  operational insights.
+                </li>
+                <li>
+                  Integrated backend APIs, local persistence, background
+                  polling, push/local notifications, and Excel/PDF reporting,
+                  enabling real-time operational visibility and exportable
+                  reports for field and management teams.
+                </li>
+                <li>
+                  iOS TestFlight Beta:{" "}
+                  <a
+                    href="https://testflight.apple.com/v1/invite/28da93f13e4847af85d09db7b60be05d835990509a7941c5acc944083b42c0f119303e0cf?ct=K2J53QC4V2&advp=10000&platform=ios"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Open Link
+                  </a>
                 </li>
               </ul>
               <div className="tags project-tags">
-                <span className="tag">Elastic</span>
-                <span className="tag">SIEM</span>
-                <span className="tag">Kali</span>
+                <span className="tag">Flutter</span>
+                <span className="tag">Google Maps</span>
+                <span className="tag">GovTech</span>
               </div>
             </article>
 
             <article className="card span-6 reveal">
               <div className="project-header">
-                <h3>ParkinCare: Deep Learning model to predict Parkinson's</h3>
-                <small className="subtext">Jun 2023 - Apr 2024</small>
+                <h3>
+                  Agartala Property Tax Platform - Indian Government
+                  e-Governance Project
+                </h3>
+                <small className="subtext">Flutter | GIS | Offline-First</small>
               </div>
               <ul className="project-list">
                 <li>
-                  Integrated handwriting, voice, and MRI data using
-                  TensorFlow/Keras.
+                  Designed and developed a Flutter-based municipal property tax
+                  survey platform to digitize field data collection, validation,
+                  and submission for urban local bodies in Tripura.
                 </li>
-                <li>Built a Python/Flask backend for processing and deployment.</li>
                 <li>
-                  <strong>Achievement:</strong> Received funding from APJ Abdul
-                  Kalam Technological University.
+                  Built a GIS-integrated property workflow using Google Maps and
+                  GeoServer WMS layers (building and ward overlays), enabling
+                  surveyors to locate properties, search by GIS ID, and capture
+                  map-linked records with higher spatial accuracy.
+                </li>
+                <li>
+                  Implemented an offline-first architecture with Isar local
+                  storage, allowing survey teams to save property records
+                  offline and perform reliable multipart sync (including images
+                  and floor-level details) when connectivity is available.
+                </li>
+                <li>
+                  Engineered geo-tagged evidence capture by embedding
+                  latitude/longitude, timestamp watermarking, and EXIF GPS
+                  metadata into property images to strengthen field auditability
+                  and data trust.
+                </li>
+                <li>
+                  Developed scalable multi-municipality flavor configuration
+                  (city-specific branding, API endpoints, map layers, and
+                  coordinates), enabling reuse of one codebase across multiple
+                  ULB deployments.
+                </li>
+                <li>
+                  Delivered end-to-end operational modules including secure
+                  login/session persistence, dynamic master data driven forms,
+                  online survey edit flows, saved-record management, and Excel
+                  export for administrative reporting.
                 </li>
               </ul>
               <div className="tags project-tags">
-                <span className="tag">TensorFlow</span>
-                <span className="tag">Keras</span>
-                <span className="tag">Flask</span>
+                <span className="tag">Flutter</span>
+                <span className="tag">GeoServer</span>
+                <span className="tag">Isar</span>
               </div>
             </article>
 
             <article className="card span-6 reveal">
               <div className="project-header">
-                <h3>Phishing Attack Simulator using Gophish</h3>
-                <small className="subtext">Aug 2024</small>
+                <h3>Bruma OS - A Debian Based Operating System</h3>
+                <small className="subtext">Linux Distribution | GitHub</small>
               </div>
               <ul className="project-list">
                 <li>
-                  Ran phishing simulations with Gophish to improve awareness and
-                  resilience.
+                  Designed and developed Bruma OS, an experimental Linux
+                  distribution built on Debian Testing, focused on system
+                  customization, branding, and desktop experience refinement.
                 </li>
                 <li>
-                  Deployed on Railway, created templates/landing pages, and
-                  analyzed campaign metrics.
+                  Engineered a GNOME-centric desktop environment with tailored
+                  themes, curated wallpapers, and customized system identity
+                  components to deliver a cohesive user interface.
+                </li>
+                <li>
+                  Implemented automated ISO generation pipelines using
+                  live-build, enabling reproducible builds and streamlined
+                  release management.
+                </li>
+                <li>
+                  Structured and maintained package repositories, configuration
+                  trees, and version control workflows on GitHub to support
+                  collaboration, transparency, and community contributions.
                 </li>
               </ul>
               <div className="tags project-tags">
-                <span className="tag">Gophish</span>
-                <span className="tag">Railway</span>
-                <span className="tag">Email Security</span>
+                <span className="tag">Debian</span>
+                <span className="tag">GNOME</span>
+                <span className="tag">Live-Build</span>
               </div>
             </article>
 
             <article className="card span-6 reveal">
               <div className="project-header">
-                <h3>QuitM8 - Addiction Relief Application</h3>
-                <small className="subtext">Sep 2023 - Jan 2023</small>
+                <h3>Vokabelly - German Vocabulary Learning App</h3>
+                <small className="subtext">Flutter | Google Play</small>
               </div>
               <ul className="project-list">
                 <li>
-                  Designed and implemented an app to help users track specific
-                  addictions.
+                  Designed and developed Vokabelly, a Flutter-based German
+                  vocabulary learning app for beginners, published on the Google
+                  Play Store.
                 </li>
                 <li>
-                  Provided reminders, alerts, and behavior insights to support
-                  better habits.
+                  Built a chapter- and section-based learning flow with
+                  interactive word pairs, progress indicators, and structured
+                  lesson navigation to support self-paced language learning.
+                </li>
+                <li>
+                  Integrated text-to-speech pronunciation, daily learning
+                  reminders, and streak-based engagement features to encourage
+                  consistent practice and retention.
+                </li>
+                <li>
+                  Implemented progress analytics and activity tracking,
+                  including daily activity and weekly learning trends, using
+                  Riverpod, local persistence, and chart-based UI components.
+                </li>
+                <li>
+                  Added onboarding, theme management, and a polished
+                  cross-platform mobile UI with localized state handling and
+                  reusable architecture.
+                </li>
+                <li>
+                  Google Play:{" "}
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.noelcore.german_words"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Open Link
+                  </a>
                 </li>
               </ul>
               <div className="tags project-tags">
-                <span className="tag">Mobile</span>
-                <span className="tag">UX</span>
+                <span className="tag">Flutter</span>
+                <span className="tag">Riverpod</span>
+                <span className="tag">EdTech</span>
+              </div>
+            </article>
+
+            <article className="card span-6 reveal">
+              <div className="project-header">
+                <h3>Zaburb Platform</h3>
+                <small className="subtext">
+                  Website | Google Play | App Store
+                </small>
+              </div>
+              <ul className="project-list">
+                <li>
+                  Developed and launched Zaburb, an on-demand safety and
+                  mobility platform focused on senior citizen security and
+                  assisted local travel.
+                </li>
+                <li>
+                  Built the end-to-end mobile product using Flutter, delivering
+                  a unified cross-platform experience for service discovery,
+                  booking, and customer interactions.
+                </li>
+                <li>
+                  Integrated Firebase for authentication, cloud-backed data
+                  workflows, and scalable backend support for reliable app
+                  operations.
+                </li>
+                <li>
+                  Implemented secure in-app payments with Razorpay, enabling
+                  seamless digital transactions for service requests.
+                </li>
+                <li>
+                  Engineered and deployed the official Zaburb website
+                  (zaburb.com) to strengthen digital presence and user
+                  onboarding.
+                </li>
+                <li>
+                  Managed multi-platform release lifecycle by publishing and
+                  maintaining production builds on both Google Play and Apple
+                  App Store.
+                </li>
+                <li>
+                  Website:{" "}
+                  <a
+                    href="https://zaburb.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Open Link
+                  </a>{" "}
+                  | Google Play:{" "}
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.zaburb.customer&hl=en_IN"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Open Link
+                  </a>{" "}
+                  | App Store:{" "}
+                  <a
+                    href="https://apps.apple.com/in/app/zaburb/id6742676344"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Open Link
+                  </a>
+                </li>
+              </ul>
+              <div className="tags project-tags">
+                <span className="tag">Flutter</span>
+                <span className="tag">Firebase</span>
+                <span className="tag">Razorpay</span>
               </div>
             </article>
           </div>
