@@ -76,13 +76,12 @@ function App() {
             <div className="kicker">
               Software Engineer | AI Generalist | Cybersecurity
             </div>
-            <h1>
-              Building secure, intelligent, and scalable digital products
-              across AI, mobile, and full-stack systems
-            </h1>
+            <h1>Hi all, I'm Noel 👋</h1>
             <p>
-              Building fast, secure, and reliable software - where performance
-              meets protection.
+              A passionate Full Stack Software Developer 🚀 having an experience
+              of building Web and Mobile applications with Flutter, Javascript
+              / Reactjs / Nodejs / React Native , PHP, Python(FastApi | Flask)
+              and some other cool libraries and frameworks.
             </p>
 
             <div className="hero-tags">
@@ -108,30 +107,30 @@ function App() {
         <section id="about">
           <h2 className="section-title reveal">About</h2>
           <p className="subtext reveal">
-            I am a dedicated and results-driven Computer Science Engineering
-            graduate with a strong foundation in Software Engineering,
-            Cybersecurity, Mobile Application Development, and Data Engineering.
+            I am a cross-platform Software Engineer who enjoys building products
+            people actually use in the real world. I have shipped applications
+            across Android, iOS, Windows, macOS, and the web, and I care deeply
+            about making software both reliable and easy to maintain.
           </p>
           <p className="subtext reveal">
-            Currently, I work as a{" "}
-            <strong>Mobile Android Developer at Stesalit Systems Limited</strong>{" "}
-            in Kolkata, India, where I focus on building secure,
-            high-performance mobile applications that meet modern industry
-            standards.
+            My core strengths are in Flutter and native Android (Kotlin), along
+            with full-stack development from frontend interfaces to backend API
+            integration. I regularly work with clean architecture, CI/CD
+            pipelines, and multi-platform release workflows for Google Play and
+            the Apple App Store.
           </p>
           <p className="subtext reveal">
-            My professional experience includes developing scalable Android
-            applications, ensuring secure coding practices, integrating APIs,
-            and improving app performance. I also have hands-on exposure to
-            cybersecurity concepts such as vulnerability assessment,
-            penetration testing, and cloud-based security solutions.
+            Security is a major part of how I build. I follow secure coding and
+            OWASP-aligned practices so applications are not only fast and
+            scalable, but also trustworthy, auditable, and resilient in
+            production.
           </p>
           <p className="subtext reveal">
-            Committed to continuous learning and innovation, I aim to bridge
-            the gap between software development and cybersecurity, creating
-            impactful and resilient digital solutions. I am passionate about
-            emerging technologies and aspire to contribute to projects that
-            enhance digital safety and user experience.
+            Across the stack, I am comfortable with Dart/Flutter,
+            JavaScript/TypeScript, and Python, and I have hands-on experience
+            with cloud platforms including AWS, GCP, and Azure. I am always
+            learning, and I enjoy solving problems where product quality,
+            performance, and security all matter together.
           </p>
         </section>
 
