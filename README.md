@@ -1,9 +1,16 @@
-# Portfolio'noeljabraham
-### Responsive
+# Noel J Abraham Portfolio (React)
 
-- Responsive Personal Portfolio Website HTML CSS & JavaScript.
-- Contains animations when scrolling.
-- Smooth scrolling in each section.
-- Developed first with the Mobile First methodology, then for desktop.
-- Compatible with all mobile devices and with a beautiful and pleasant user interface.
+This portfolio is now a React project powered by Vite.
 
+## Run locally
+
+```bash
+npm install
+npm run dev
+```
+
+## Build
+
+```bash
+npm run build
+```
