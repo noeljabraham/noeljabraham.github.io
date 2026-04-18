@@ -171,6 +171,10 @@ h2.section-title {
   letter-spacing: -0.02em;
 }
 
+.hero-subtext {
+  margin-top: 18px;
+}
+
 .hero-tags {
   margin-top: 24px;
   display: flex;
