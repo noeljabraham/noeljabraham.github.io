@@ -14,7 +14,7 @@ const AnimatedLayerButton = React.forwardRef<
     <button
       className={cn(
         "group relative flex h-[50px] w-[180px] items-center justify-center overflow-hidden rounded-[30px] border-none",
-        "cursor-pointer bg-primary shadow-[8px_8px_0px_hsl(var(--foreground))] transition-all duration-300 ease-in-out",
+        "cursor-pointer bg-blue-600 shadow-[8px_8px_0px_hsl(var(--foreground))] transition-all duration-300 ease-in-out hover:bg-black",
         "hover:translate-y-[5px] hover:shadow-[3px_3px_0px_hsl(var(--foreground))]",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
         "disabled:pointer-events-none disabled:opacity-50",
@@ -39,7 +39,7 @@ const AnimatedLayerButton = React.forwardRef<
           transform="translate(-202.29 -201.89)"
         />
         <path
-          fill="#e82728"
+          fill="#2563eb"
           d="M1285.89,749.79c-.25,297.07-241.24,535.86-536.12,535.66-296.34-.21-537-241.72-535.29-539,1.68-293.16,240.83-534.18,539.15-532.37C1046.8,215.84,1285.62,453.88,1285.89,749.79Z"
           transform="translate(-202.29 -201.89)"
         />
@@ -49,7 +49,7 @@ const AnimatedLayerButton = React.forwardRef<
           transform="translate(-202.29 -201.89)"
         />
         <path
-          fill="#e92728"
+          fill="#1d4ed8"
           d="M1097.23,749.87c.22,190.31-154.42,347.43-348,346.92-192-.5-346.48-156.44-346.17-347.7C403.33,558,558.18,402,751.08,402.55,944.62,403.09,1097.69,560.56,1097.23,749.87Z"
           transform="translate(-202.29 -201.89)"
         />

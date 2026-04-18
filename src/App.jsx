@@ -102,7 +102,7 @@ function App() {
             <h1 className="hero-title">Hi all, I'm Noel 👋</h1>
             <p className="hero-subtext">
               A passionate Full Stack Software Developer 🚀 having an experience
-              of building Web and Mobile applications with Flutter, Javascript
+              of building Web and Mobile applications with Flutter / Javascript
               / Reactjs / Nodejs / React Native , PHP, Python(FastApi | Flask)
               and some other cool libraries and frameworks.
             </p>
