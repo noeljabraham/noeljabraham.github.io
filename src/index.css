@@ -170,7 +170,7 @@ section {
 }
 
 h2.section-title {
-  font-size: 28px;
+  font-size: clamp(2rem, 4.2vw, 3rem);
   margin: 0 0 18px;
 }
 
@@ -225,6 +225,19 @@ h2.section-title {
   margin-top: 24px;
   font-style: italic;
   color: var(--muted);
+}
+
+.quote-blur {
+  margin-top: 24px;
+  min-height: 52px;
+  width: 100%;
+}
+
+.quote-blur-text {
+  font-size: 0.96rem;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.45;
 }
 
 .card {
@@ -354,5 +367,9 @@ h2.section-title {
   nav ul {
     gap: 10px;
     flex-wrap: wrap;
+  }
+
+  .quote-blur {
+    min-height: 64px;
   }
 }

@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { Typewriter } from "@/components/ui/typewriter";
 import { Button } from "@/components/ui/button";
+import { BlurTextEffect } from "@/components/ui/blur-text-effect";
+import { BubbleText } from "@/components/ui/bubble-text";
+import { TextScramble } from "@/components/ui/text-scramble";
+import { SlideTabs } from "@/components/ui/slide-tabs";
 
 const resumeUrl =
   "https://drive.google.com/file/d/1gL-2coObsURZEyCPAO6yxNGt837F7uaU/view?usp=sharing";
@@ -53,7 +57,7 @@ function App() {
   useEffect(() => {
     const timer = setInterval(() => {
       setQuoteIndex((prev) => (prev + 1) % rotatingQuotes.length);
-    }, 4500);
+    }, 3800);
 
     return () => clearInterval(timer);
   }, []);
@@ -64,23 +68,12 @@ function App() {
         <div className="container nav">
           <div className="logo" aria-label="logo">
             <span className="dot" aria-hidden="true"></span>
-            <span>Noel J Abraham</span>
+            <TextScramble as="span" className="logo-scramble" duration={1} speed={0.03}>
+              Noel J Abraham
+            </TextScramble>
           </div>
           <nav>
-            <ul>
-              <li>
-                <a href="#about">About</a>
-              </li>
-              <li>
-                <a href="#experience">Experience</a>
-              </li>
-              <li>
-                <a href="#projects">Projects</a>
-              </li>
-              <li>
-                <a href="#contact">Contact</a>
-              </li>
-            </ul>
+            <SlideTabs />
           </nav>
           <div className="nav-actions">
             <Button
@@ -127,8 +120,10 @@ function App() {
               />
             </p>
 
-            <p className="quote">
-              {rotatingQuotes[quoteIndex]}
+            <p className="quote-blur">
+              <BlurTextEffect className="quote-blur-text">
+                {rotatingQuotes[quoteIndex]}
+              </BlurTextEffect>
             </p>
           </div>
 
@@ -138,7 +133,9 @@ function App() {
         </section>
 
         <section id="about">
-          <h2 className="section-title reveal">About</h2>
+          <div className="reveal">
+            <BubbleText text="About" className="section-title" />
+          </div>
           <p className="subtext reveal">
             I am a cross-platform Software Engineer who enjoys building products
             people actually use in the real world. I have shipped applications
@@ -168,7 +165,9 @@ function App() {
         </section>
 
         <section id="experience">
-          <h2 className="section-title reveal">Experience</h2>
+          <div className="reveal">
+            <BubbleText text="Experience" className="section-title" />
+          </div>
 
           <div className="card reveal">
             <p>
@@ -255,7 +254,9 @@ function App() {
         </section>
 
         <section id="projects">
-          <h2 className="section-title reveal">Projects</h2>
+          <div className="reveal">
+            <BubbleText text="Projects" className="section-title" />
+          </div>
 
           <div className="cards">
             <article className="card span-6 reveal">
@@ -438,7 +439,9 @@ function App() {
         </section>
 
         <section id="contact">
-          <h2 className="section-title reveal">Contact</h2>
+          <div className="reveal">
+            <BubbleText text="Contact" className="section-title" />
+          </div>
           <p className="subtext reveal">Connect with me on:</p>
           <div className="socials reveal">
             <a
