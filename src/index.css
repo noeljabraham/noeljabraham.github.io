@@ -104,12 +104,23 @@ header {
   flex-wrap: wrap;
 }
 
+.nav nav {
+  flex: 1;
+  min-width: 320px;
+  display: flex;
+  justify-content: center;
+}
+
 .logo {
   display: flex;
   gap: 10px;
   align-items: center;
   font-weight: 800;
   letter-spacing: 0.3px;
+}
+
+.logo-scramble {
+  display: inline-block;
 }
 
 .logo .dot {
@@ -142,6 +153,7 @@ nav a:hover {
   display: flex;
   gap: 8px;
   align-items: center;
+  justify-content: flex-end;
 }
 
 .btn {
@@ -292,6 +304,10 @@ h2.section-title {
   margin: 8px 0 0 18px;
 }
 
+.project-list a {
+  overflow-wrap: anywhere;
+}
+
 .tags {
   display: flex;
   flex-wrap: wrap;
@@ -350,6 +366,36 @@ h2.section-title {
 }
 
 @media (max-width: 900px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  section {
+    padding: 44px 0;
+  }
+
+  .hero {
+    padding: 68px 0 24px;
+    gap: 24px;
+  }
+
+  .hero-title {
+    font-size: clamp(1.75rem, 7vw, 2.6rem);
+  }
+
+  .hero-subtext {
+    margin-top: 14px;
+    line-height: 1.5;
+  }
+
+  .quote-blur {
+    margin-top: 16px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
   .cards {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -357,19 +403,111 @@ h2.section-title {
   .span-6 {
     grid-column: auto;
   }
+
+  .project-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
 }
 
 @media (max-width: 768px) {
-  .hero {
-    grid-template-columns: 1fr;
+  .nav {
+    align-items: stretch;
+    gap: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 
-  nav ul {
-    gap: 10px;
-    flex-wrap: wrap;
+  .logo {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .logo-scramble {
+    font-size: 0.96rem;
+  }
+
+  .nav nav {
+    min-width: 0;
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .nav-actions {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .nav-actions button {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .hero-typewriter {
+    margin-top: 18px;
+  }
+
+  .hero-typewriter-text {
+    font-size: 0.98rem;
   }
 
   .quote-blur {
-    min-height: 64px;
+    min-height: 56px;
+  }
+
+  h2.section-title {
+    font-size: clamp(1.65rem, 8vw, 2.2rem);
+    margin-bottom: 14px;
+  }
+
+  .project-title {
+    font-size: 1rem;
+  }
+
+  .socials {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 12px;
+  }
+
+  header {
+    border-bottom-width: 1px;
+  }
+
+  .hero {
+    padding-top: 58px;
+  }
+
+  .hero-title {
+    font-size: clamp(1.5rem, 8.3vw, 2rem);
+  }
+
+  .hero-subtext {
+    font-size: 0.96rem;
+  }
+
+  .quote-blur-text {
+    font-size: 0.88rem;
+    line-height: 1.35;
+  }
+
+  .card {
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  .project-list {
+    margin-left: 16px;
   }
 }

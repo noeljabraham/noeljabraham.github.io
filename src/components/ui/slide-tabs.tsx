@@ -59,7 +59,7 @@ export const SlideTabs = ({
           });
         }
       }}
-      className="relative mx-auto flex w-fit rounded-full border-2 border-black bg-[#88aaee] p-1 shadow-[4px_4px_0px_0px_#000]"
+      className="relative mx-auto flex w-full max-w-full flex-nowrap overflow-x-auto rounded-full border-2 border-black bg-[#88aaee] p-1 shadow-[4px_4px_0px_0px_#000] md:w-fit"
     >
       {tabs.map((tab, i) => (
         <Tab
@@ -104,7 +104,7 @@ const Tab = React.forwardRef<HTMLLIElement, TabProps>(
             opacity: 1
           });
         }}
-        className="relative z-10 block cursor-pointer px-3 py-1.5 text-xs font-semibold uppercase text-black md:px-5 md:py-3 md:text-base"
+        className="relative z-10 block shrink-0 cursor-pointer px-3 py-1.5 text-xs font-semibold uppercase text-black md:px-5 md:py-3 md:text-base"
       >
         {children}
       </li>
