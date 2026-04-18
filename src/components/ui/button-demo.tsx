@@ -1,9 +1,11 @@
-import { AnimatedLayerButton } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 
-export default function AnimatedLayerButtonDemo() {
-  return (
-    <div className="flex min-h-[250px] w-full items-center justify-center bg-background p-10">
-      <AnimatedLayerButton>Hover Me</AnimatedLayerButton>
-    </div>
-  );
-}
+const Default = () => <Button>Button</Button>;
+
+const Reverse = () => <Button variant="reverse">Reverse</Button>;
+
+const NoShadow = () => <Button variant="noShadow">No Shadow</Button>;
+
+const Neutral = () => <Button variant="neutral">Neutral</Button>;
+
+export { Default, Reverse, NoShadow, Neutral };

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Typewriter } from "@/components/ui/typewriter";
-import { AnimatedLayerButton } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 
 const resumeUrl =
   "https://drive.google.com/file/d/1gL-2coObsURZEyCPAO6yxNGt837F7uaU/view?usp=sharing";
@@ -83,12 +83,13 @@ function App() {
             </ul>
           </nav>
           <div className="nav-actions">
-            <AnimatedLayerButton
+            <Button
               onClick={handleResumeClick}
+              className="min-w-[180px]"
               aria-label="Download Resume"
             >
               Download Resume
-            </AnimatedLayerButton>
+            </Button>
           </div>
         </div>
       </header>
