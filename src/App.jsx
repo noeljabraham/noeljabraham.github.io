@@ -96,7 +96,7 @@ function App() {
             {/* <div className="kicker">
               Software Engineer | AI Generalist | Cybersecurity
             </div> */}
-            <h1>Hi all, I'm Noel 👋</h1>
+            <h1 className="hero-title">Hi all, I'm Noel 👋</h1>
             <p>
               A passionate Full Stack Software Developer 🚀 having an experience
               of building Web and Mobile applications with Flutter, Javascript

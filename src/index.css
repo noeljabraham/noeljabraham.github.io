@@ -163,6 +163,14 @@ h2.section-title {
   box-shadow: var(--shadow);
 }
 
+.hero-title {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
 .hero-tags {
   margin-top: 24px;
   display: flex;
