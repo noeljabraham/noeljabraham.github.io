@@ -113,7 +113,7 @@ function App() {
               <Typewriter
                 text={[
                   "AI Generalist",
-                  "InfoSec Enthusiast",
+                  "Cybersecurity & InfoSec Enthusiast",
                   "Flutter Developer",
                   "Full-Stack Developer",
                   "Network Infrastructure Builder",
@@ -260,37 +260,23 @@ function App() {
           <div className="cards">
             <article className="card span-6 reveal">
               <div className="project-header">
-                <h3>GAIL India Fleet App - Indian Government Project</h3>
+                <h3 className="project-title">
+                  GAIL India Fleet App - Government Project
+                </h3>
                 <small className="subtext">Flutter | iOS TestFlight Beta</small>
               </div>
               <ul className="project-list">
                 <li>
-                  Designed and developed a Flutter-based fleet operations mobile
-                  application for GAIL India to monitor CNG logistics, station
-                  activity, route movement, and operational alerts across
-                  multiple user roles.
+                  Built a Flutter fleet operations app for monitoring CNG
+                  logistics, station activity, and route movement.
                 </li>
                 <li>
-                  Implemented role-based authentication and navigation for Super
-                  Admin, GA In-charge, MS Admin, DBS Admin, and driver
-                  workflows, with secure token storage, scoped access control,
-                  and dynamic dashboard rendering.
+                  Implemented secure role-based workflows and live
+                  map-visualization for multi-level operations teams.
                 </li>
                 <li>
-                  Built live fleet monitoring and map-based visualization using
-                  Google Maps, covering geographical areas, mother/daughter
-                  stations, LCV locations, route layers, dry-out prediction
-                  views, queue status, trip schedules, and station-wise
-                  operational insights.
-                </li>
-                <li>
-                  Integrated backend APIs, local persistence, background
-                  polling, push/local notifications, and Excel/PDF reporting,
-                  enabling real-time operational visibility and exportable
-                  reports for field and management teams.
-                </li>
-                <li>
-                  iOS TestFlight Beta:{" "}
+                  Added APIs, notifications, and report exports for real-time
+                  field and management visibility. TestFlight:{" "}
                   <a
                     href="https://testflight.apple.com/v1/invite/28da93f13e4847af85d09db7b60be05d835990509a7941c5acc944083b42c0f119303e0cf?ct=K2J53QC4V2&advp=10000&platform=ios"
                     target="_blank"
@@ -309,47 +295,23 @@ function App() {
 
             <article className="card span-6 reveal">
               <div className="project-header">
-                <h3>
-                  Agartala Property Tax Platform - Indian Government
-                  e-Governance Project
+                <h3 className="project-title">
+                  Agartala Property Tax Platform - e-Governance
                 </h3>
                 <small className="subtext">Flutter | GIS | Offline-First</small>
               </div>
               <ul className="project-list">
                 <li>
-                  Designed and developed a Flutter-based municipal property tax
-                  survey platform to digitize field data collection, validation,
-                  and submission for urban local bodies in Tripura.
+                  Developed a Flutter platform for municipal tax surveys and
+                  digital field data collection.
                 </li>
                 <li>
-                  Built a GIS-integrated property workflow using Google Maps and
-                  GeoServer WMS layers (building and ward overlays), enabling
-                  surveyors to locate properties, search by GIS ID, and capture
-                  map-linked records with higher spatial accuracy.
+                  Integrated GIS maps (Google Maps + GeoServer) with offline
+                  sync using Isar for low-connectivity workflows.
                 </li>
                 <li>
-                  Implemented an offline-first architecture with Isar local
-                  storage, allowing survey teams to save property records
-                  offline and perform reliable multipart sync (including images
-                  and floor-level details) when connectivity is available.
-                </li>
-                <li>
-                  Engineered geo-tagged evidence capture by embedding
-                  latitude/longitude, timestamp watermarking, and EXIF GPS
-                  metadata into property images to strengthen field auditability
-                  and data trust.
-                </li>
-                <li>
-                  Developed scalable multi-municipality flavor configuration
-                  (city-specific branding, API endpoints, map layers, and
-                  coordinates), enabling reuse of one codebase across multiple
-                  ULB deployments.
-                </li>
-                <li>
-                  Delivered end-to-end operational modules including secure
-                  login/session persistence, dynamic master data driven forms,
-                  online survey edit flows, saved-record management, and Excel
-                  export for administrative reporting.
+                  Added geo-tagged evidence capture, secure form flows, and
+                  Excel-based admin reporting modules.
                 </li>
               </ul>
               <div className="tags project-tags">
@@ -361,29 +323,23 @@ function App() {
 
             <article className="card span-6 reveal">
               <div className="project-header">
-                <h3>Bruma OS - A Debian Based Operating System</h3>
+                <h3 className="project-title">
+                  Bruma OS - Debian-Based Operating System
+                </h3>
                 <small className="subtext">Linux Distribution | GitHub</small>
               </div>
               <ul className="project-list">
                 <li>
-                  Designed and developed Bruma OS, an experimental Linux
-                  distribution built on Debian Testing, focused on system
-                  customization, branding, and desktop experience refinement.
+                  Built Bruma OS on Debian Testing with focus on customization
+                  and desktop experience refinement.
                 </li>
                 <li>
-                  Engineered a GNOME-centric desktop environment with tailored
-                  themes, curated wallpapers, and customized system identity
-                  components to deliver a cohesive user interface.
+                  Created a GNOME-centric UI with custom themes, wallpapers, and
+                  branded system identity components.
                 </li>
                 <li>
-                  Implemented automated ISO generation pipelines using
-                  live-build, enabling reproducible builds and streamlined
-                  release management.
-                </li>
-                <li>
-                  Structured and maintained package repositories, configuration
-                  trees, and version control workflows on GitHub to support
-                  collaboration, transparency, and community contributions.
+                  Automated reproducible ISO builds with `live-build` and
+                  maintained repositories on GitHub.
                 </li>
               </ul>
               <div className="tags project-tags">
@@ -395,37 +351,23 @@ function App() {
 
             <article className="card span-6 reveal">
               <div className="project-header">
-                <h3>Vokabelly - German Vocabulary Learning App</h3>
+                <h3 className="project-title">
+                  Vokabelly - German Vocabulary Learning App
+                </h3>
                 <small className="subtext">Flutter | Google Play</small>
               </div>
               <ul className="project-list">
                 <li>
-                  Designed and developed Vokabelly, a Flutter-based German
-                  vocabulary learning app for beginners, published on the Google
-                  Play Store.
+                  Developed and published a Flutter-based German vocabulary app
+                  for beginners on Google Play.
                 </li>
                 <li>
-                  Built a chapter- and section-based learning flow with
-                  interactive word pairs, progress indicators, and structured
-                  lesson navigation to support self-paced language learning.
+                  Built lesson-based learning flow with TTS, streak reminders,
+                  and progress tracking.
                 </li>
                 <li>
-                  Integrated text-to-speech pronunciation, daily learning
-                  reminders, and streak-based engagement features to encourage
-                  consistent practice and retention.
-                </li>
-                <li>
-                  Implemented progress analytics and activity tracking,
-                  including daily activity and weekly learning trends, using
-                  Riverpod, local persistence, and chart-based UI components.
-                </li>
-                <li>
-                  Added onboarding, theme management, and a polished
-                  cross-platform mobile UI with localized state handling and
-                  reusable architecture.
-                </li>
-                <li>
-                  Google Play:{" "}
+                  Implemented Riverpod-based state management, analytics charts,
+                  and reusable UI components. Google Play:{" "}
                   <a
                     href="https://play.google.com/store/apps/details?id=com.noelcore.german_words"
                     target="_blank"
@@ -444,43 +386,23 @@ function App() {
 
             <article className="card span-6 reveal">
               <div className="project-header">
-                <h3>Zaburb Platform</h3>
+                <h3 className="project-title">Zaburb Platform</h3>
                 <small className="subtext">
                   Website | Google Play | App Store
                 </small>
               </div>
               <ul className="project-list">
                 <li>
-                  Developed and launched Zaburb, an on-demand safety and
-                  mobility platform focused on senior citizen security and
-                  assisted local travel.
+                  Developed and launched an on-demand safety and mobility
+                  platform focused on senior citizen security.
                 </li>
                 <li>
-                  Built the end-to-end mobile product using Flutter, delivering
-                  a unified cross-platform experience for service discovery,
-                  booking, and customer interactions.
+                  Built end-to-end cross-platform mobile apps with Flutter and
+                  integrated Firebase + Razorpay.
                 </li>
                 <li>
-                  Integrated Firebase for authentication, cloud-backed data
-                  workflows, and scalable backend support for reliable app
-                  operations.
-                </li>
-                <li>
-                  Implemented secure in-app payments with Razorpay, enabling
-                  seamless digital transactions for service requests.
-                </li>
-                <li>
-                  Engineered and deployed the official Zaburb website
-                  (zaburb.com) to strengthen digital presence and user
-                  onboarding.
-                </li>
-                <li>
-                  Managed multi-platform release lifecycle by publishing and
-                  maintaining production builds on both Google Play and Apple
-                  App Store.
-                </li>
-                <li>
-                  Website:{" "}
+                  Managed website + app releases across Web, Google Play, and
+                  Apple App Store. Links:{" "}
                   <a
                     href="https://zaburb.com/"
                     target="_blank"
