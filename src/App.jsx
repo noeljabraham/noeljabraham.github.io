@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Typewriter } from "@/components/ui/typewriter";
 
 const resumeUrl =
   "https://drive.google.com/file/d/1gL-2coObsURZEyCPAO6yxNGt837F7uaU/view?usp=sharing";
@@ -92,9 +93,9 @@ function App() {
       <main className="container">
         <section className="hero reveal" id="home">
           <div>
-            <div className="kicker">
+            {/* <div className="kicker">
               Software Engineer | AI Generalist | Cybersecurity
-            </div>
+            </div> */}
             <h1>Hi all, I'm Noel 👋</h1>
             <p>
               A passionate Full Stack Software Developer 🚀 having an experience
@@ -103,14 +104,24 @@ function App() {
               and some other cool libraries and frameworks.
             </p>
 
-            <div className="hero-tags">
-              <span className="tag">AI Generalist</span>
-              <span className="tag">InfoSec Enthusiast</span>
-              <span className="tag">Flutter Developer</span>
-              <span className="tag">Full-Stack Developer</span>
-              <span className="tag">Network Infrastructure</span>
-              <span className="tag">Google Cybersecurity Certified</span>
-            </div>
+            <p className="hero-typewriter">
+              And I'm also a{" "}
+              <Typewriter
+                text={[
+                  "AI Generalist",
+                  "InfoSec Enthusiast",
+                  "Flutter Developer",
+                  "Full-Stack Developer",
+                  "Network Infrastructure Builder",
+                  "Google Cybersecurity Certified Professional"
+                ]}
+                speed={65}
+                waitTime={1400}
+                deleteSpeed={35}
+                className="hero-typewriter-text"
+                cursorChar="_"
+              />
+            </p>
 
             <p className="quote">
               {rotatingQuotes[quoteIndex]}

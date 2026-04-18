@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 :root {
   --bg: #ffffff;
   --bg-elev: #f6f7f9;
@@ -166,6 +168,16 @@ h2.section-title {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+}
+
+.hero-typewriter {
+  margin-top: 24px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.hero-typewriter-text {
+  color: var(--brand);
 }
 
 .quote {
