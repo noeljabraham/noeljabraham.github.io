@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Typewriter } from "@/components/ui/typewriter";
+import { AnimatedLayerButton } from "@/components/ui/button";
 
 const resumeUrl =
   "https://drive.google.com/file/d/1gL-2coObsURZEyCPAO6yxNGt837F7uaU/view?usp=sharing";
@@ -15,6 +16,10 @@ const rotatingQuotes = [
 
 function App() {
   const [quoteIndex, setQuoteIndex] = useState(0);
+
+  const handleResumeClick = () => {
+    window.open(resumeUrl, "_blank", "noopener,noreferrer");
+  };
 
   useEffect(() => {
     const revealEls = document.querySelectorAll(".reveal");
@@ -78,14 +83,12 @@ function App() {
             </ul>
           </nav>
           <div className="nav-actions">
-            <a
-              className="btn primary"
-              href={resumeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <AnimatedLayerButton
+              onClick={handleResumeClick}
+              aria-label="Download Resume"
             >
               Download Resume
-            </a>
+            </AnimatedLayerButton>
           </div>
         </div>
       </header>

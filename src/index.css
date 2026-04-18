@@ -1,6 +1,11 @@
 @import "tailwindcss";
 
 :root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --primary: 221.2 83.2% 53.3%;
+  --primary-foreground: 210 40% 98%;
+  --ring: 221.2 83.2% 53.3%;
   --bg: #ffffff;
   --bg-elev: #f6f7f9;
   --text: #0e1217;
@@ -13,6 +18,11 @@
 }
 
 .dark {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --primary: 217.2 91.2% 59.8%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+  --ring: 217.2 91.2% 59.8%;
   --bg: #0b0d0f;
   --bg-elev: #101319;
   --text: #e7edf3;
