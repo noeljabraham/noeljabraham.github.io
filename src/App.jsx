@@ -1,9 +1,20 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const resumeUrl =
   "https://drive.google.com/file/d/1gL-2coObsURZEyCPAO6yxNGt837F7uaU/view?usp=sharing";
 
+const rotatingQuotes = [
+  '"Success is not final, failure is not fatal: it is the courage to continue that counts." - Winston Churchill',
+  '"First, solve the problem. Then, write the code." - John Johnson',
+  '"The best way to predict the future is to invent it." - Alan Kay',
+  '"Any fool can write code that a computer can understand. Good programmers write code that humans can understand." - Martin Fowler',
+  '"It always seems impossible until it is done." - Nelson Mandela',
+  '"Security is not a product, but a process." - Bruce Schneier'
+];
+
 function App() {
+  const [quoteIndex, setQuoteIndex] = useState(0);
+
   useEffect(() => {
     const revealEls = document.querySelectorAll(".reveal");
 
@@ -31,6 +42,14 @@ function App() {
     }
 
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setQuoteIndex((prev) => (prev + 1) % rotatingQuotes.length);
+    }, 4500);
+
+    return () => clearInterval(timer);
   }, []);
 
   return (
@@ -94,8 +113,7 @@ function App() {
             </div>
 
             <p className="quote">
-              "Success is not final, failure is not fatal: it is the courage to
-              continue that counts." - Winston Churchill
+              {rotatingQuotes[quoteIndex]}
             </p>
           </div>
 
