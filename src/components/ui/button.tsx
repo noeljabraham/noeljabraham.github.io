@@ -5,17 +5,17 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-[5px] text-sm font-medium ring-offset-white transition-all duration-200 gap-2 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-[5px] text-sm font-medium ring-offset-[color:var(--ring-offset)] transition-all duration-200 gap-2 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--blank)] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
         default:
-          "text-black bg-[#88aaee] border-2 border-black shadow-[4px_4px_0px_0px_#000] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none",
-        noShadow: "text-black bg-[#88aaee] border-2 border-black",
+          "text-[var(--mtext)] bg-[var(--main)] border-2 border-[color:var(--blank)] shadow-[4px_4px_0px_0px_var(--blank)] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none",
+        noShadow: "text-[var(--mtext)] bg-[var(--main)] border-2 border-[color:var(--blank)]",
         neutral:
-          "bg-white text-black border-2 border-black shadow-[4px_4px_0px_0px_#000] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none",
+          "bg-[var(--bw)] text-[var(--mtext)] border-2 border-[color:var(--blank)] shadow-[4px_4px_0px_0px_var(--blank)] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none",
         reverse:
-          "text-black bg-[#88aaee] border-2 border-black translate-x-[4px] translate-y-[4px] shadow-none hover:translate-x-0 hover:translate-y-0 hover:shadow-[4px_4px_0px_0px_#000]"
+          "text-[var(--mtext)] bg-[var(--main)] border-2 border-[color:var(--blank)] translate-x-[4px] translate-y-[4px] shadow-none hover:translate-x-0 hover:translate-y-0 hover:shadow-[4px_4px_0px_0px_var(--blank)]"
       },
       size: {
         default: "h-10 px-4 py-2",

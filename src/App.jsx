@@ -18,12 +18,102 @@ const rotatingQuotes = [
   '"Security is not a product, but a process." - Bruce Schneier'
 ];
 
+const defaultProjectImage = "/assets/img/image.png";
+
+const projects = [
+  {
+    title: "GAIL India Fleet App - Government Project",
+    subtitle: "Flutter | iOS TestFlight Beta",
+    image: "/assets/proj/gail.jpg",
+    description:
+      "Built a Flutter fleet operations app for monitoring CNG logistics, station activity, and route movement.",
+    tags: ["Flutter", "Google Maps", "GovTech"],
+    links: [
+      {
+        label: "TestFlight",
+        href: "https://testflight.apple.com/v1/invite/28da93f13e4847af85d09db7b60be05d835990509a7941c5acc944083b42c0f119303e0cf?ct=K2J53QC4V2&advp=10000&platform=ios"
+      }
+    ]
+  },
+  {
+    title: "Agartala Property Tax Platform - e-Governance",
+    subtitle: "Flutter | GIS | Offline-First",
+    image: "/assets/proj/agartala.jpg",
+    description:
+      "Developed a Flutter platform for municipal tax surveys and digital field data collection.",
+    tags: ["Flutter", "GeoServer", "Isar"],
+    links: []
+  },
+  {
+    title: "Bruma OS - Debian-Based Operating System",
+    subtitle: "Linux Distribution | GitHub",
+    image: "/assets/proj/burma.png",
+    description:
+      "Built Bruma OS on Debian Testing with focus on customization and desktop experience refinement.",
+    tags: ["Debian", "GNOME", "Live-Build"],
+    links: [{ label: "GitHub", href: "https://github.com/noeljabraham/bruma-packages" }]
+  },
+  {
+    title: "Vokabelly - German Vocabulary Learning App",
+    subtitle: "Flutter | Google Play",
+    image: "/assets/proj/vokabelly.png",
+    description:
+      "Developed and published a Flutter-based German vocabulary app for beginners on Google Play.",
+    tags: ["Flutter", "Riverpod", "EdTech"],
+    links: [
+      {
+        label: "Google Play",
+        href: "https://play.google.com/store/apps/details?id=com.noelcore.german_words"
+      }
+    ]
+  },
+  {
+    title: "Zaburb Platform",
+    subtitle: "Website | Google Play | App Store",
+    image: "/assets/proj/zaburb.webp",
+    description:
+      "Developed and launched an on-demand safety and mobility platform focused on senior citizen security.",
+    tags: ["Flutter", "Firebase", "Razorpay"],
+    links: [
+      { label: "Website", href: "https://zaburb.com/" },
+      {
+        label: "Google Play",
+        href: "https://play.google.com/store/apps/details?id=com.zaburb.customer&hl=en_IN"
+      },
+      { label: "App Store", href: "https://apps.apple.com/in/app/zaburb/id6742676344" }
+    ]
+  }
+];
+
+const getPreferredTheme = () => {
+  if (typeof window === "undefined") {
+    return "light";
+  }
+
+  const savedTheme = window.localStorage.getItem("theme");
+  if (savedTheme === "light" || savedTheme === "dark") {
+    return savedTheme;
+  }
+
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+};
+
 function App() {
   const [quoteIndex, setQuoteIndex] = useState(0);
+  const [theme, setTheme] = useState(getPreferredTheme);
 
   const handleResumeClick = () => {
     window.open(resumeUrl, "_blank", "noopener,noreferrer");
   };
+
+  const handleThemeToggle = () => {
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+  };
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", theme === "dark");
+    window.localStorage.setItem("theme", theme);
+  }, [theme]);
 
   useEffect(() => {
     const revealEls = document.querySelectorAll(".reveal");
@@ -57,7 +147,7 @@ function App() {
   useEffect(() => {
     const timer = setInterval(() => {
       setQuoteIndex((prev) => (prev + 1) % rotatingQuotes.length);
-    }, 3800);
+    }, 6000);
 
     return () => clearInterval(timer);
   }, []);
@@ -83,6 +173,20 @@ function App() {
             >
               Download Resume
             </Button>
+            <button
+              type="button"
+              onClick={handleThemeToggle}
+              className={`theme-switch ${theme === "dark" ? "is-dark" : ""}`}
+              aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+              aria-pressed={theme === "dark"}
+            >
+              <span className="theme-switch-track" aria-hidden="true">
+                <span className="theme-switch-thumb"></span>
+              </span>
+              <span className="theme-switch-text">
+                {theme === "dark" ? "Dark" : "Light"}
+              </span>
+            </button>
           </div>
         </div>
       </header>
@@ -168,88 +272,106 @@ function App() {
           <div className="reveal">
             <BubbleText text="Experience" className="section-title" />
           </div>
+          <div className="experience-timeline">
+            <article className="experience-item reveal">
+              <div className="experience-marker">
+                <div className="experience-logo">
+                  <img src="/assets/exp/stesalit.png" alt="Stesalit Systems Limited logo" />
+                </div>
+              </div>
+              <div className="experience-content">
+                <p className="experience-role">
+                  <strong>Software Development Engineer</strong>
+                </p>
+                <p className="experience-company">Stesalit Systems Limited - Kolkata, India</p>
+                <p className="experience-date">Sep 2024 - Present</p>
+                <ul className="experience-points">
+                  <li>
+                    Designed and maintained production Android applications,
+                    implementing clean architecture patterns and improving app
+                    stability and performance.
+                  </li>
+                  <li>
+                    Integrated RESTful APIs with token-based authentication, HTTPS
+                    enforcement, and robust error handling to ensure reliable
+                    client-server communication.
+                  </li>
+                  <li>
+                    Collaborated in agile sprints, participating in code reviews,
+                    sprint planning, and retrospectives to ship features on
+                    schedule.
+                  </li>
+                  <li>
+                    Documented system architecture and technical design decisions to
+                    support long-term maintainability and onboarding of new team
+                    members.
+                  </li>
+                </ul>
+              </div>
+            </article>
 
-          <div className="card reveal">
-            <p>
-              <strong>Software Development Engineer</strong>
-              <br />
-              Stesalit Systems Limited - Kolkata, India
-              <br />
-              Sep 2024 - Present
-            </p>
-            <ul>
-              <li>
-                Designed and maintained production Android applications,
-                implementing clean architecture patterns and improving app
-                stability and performance.
-              </li>
-              <li>
-                Integrated RESTful APIs with token-based authentication, HTTPS
-                enforcement, and robust error handling to ensure reliable
-                client-server communication.
-              </li>
-              <li>
-                Collaborated in agile sprints, participating in code reviews,
-                sprint planning, and retrospectives to ship features on
-                schedule.
-              </li>
-              <li>
-                Documented system architecture and technical design decisions to
-                support long-term maintainability and onboarding of new team
-                members.
-              </li>
-            </ul>
-          </div>
+            <article className="experience-item reveal">
+              <div className="experience-marker">
+                <div className="experience-logo">
+                  <img src="/assets/exp/saburb.jpg" alt="Zaburb logo" />
+                </div>
+              </div>
+              <div className="experience-content">
+                <p className="experience-role">
+                  <strong>Software Engineer Intern</strong>
+                </p>
+                <p className="experience-company">Zaburb Pvt Ltd - Bangalore, India</p>
+                <p className="experience-date">Jun 2023 - Apr 2024</p>
+                <ul className="experience-points">
+                  <li>
+                    Contributed to the development and testing of a location-based
+                    mobile application, building features across the UI and data
+                    layers.
+                  </li>
+                  <li>
+                    Designed and implemented data flows for handling sensitive user
+                    information, ensuring privacy-compliant data storage and
+                    transmission.
+                  </li>
+                  <li>
+                    Applied secure API communication patterns and mobile design best
+                    practices in collaboration with a cross-functional engineering
+                    team.
+                  </li>
+                </ul>
+              </div>
+            </article>
 
-          <div className="card reveal">
-            <p>
-              <strong>Software Engineer Intern</strong>
-              <br />
-              Zaburb Pvt Ltd - Bangalore, India
-              <br />
-              Jun 2023 - Apr 2024
-            </p>
-            <ul>
-              <li>
-                Contributed to the development and testing of a location-based
-                mobile application, building features across the UI and data
-                layers.
-              </li>
-              <li>
-                Designed and implemented data flows for handling sensitive user
-                information, ensuring privacy-compliant data storage and
-                transmission.
-              </li>
-              <li>
-                Applied secure API communication patterns and mobile design best
-                practices in collaboration with a cross-functional engineering
-                team.
-              </li>
-            </ul>
-          </div>
-
-          <div className="card reveal">
-            <p>
-              <strong>Lead Android Developer</strong>
-              <br />
-              Google Developer Student Club (GDSC), AJCE - Kerala, India
-              <br />
-              Sep 2023 - May 2024
-            </p>
-            <ul>
-              <li>
-                Led a team of Android developers to plan, build, and deliver
-                applications following industry-standard coding practices.
-              </li>
-              <li>
-                Mentored junior developers on Android architecture, Kotlin best
-                practices, and efficient use of Jetpack libraries.
-              </li>
-              <li>
-                Organized technical workshops and hands-on sessions, improving
-                team proficiency in Android development and DevOps tooling.
-              </li>
-            </ul>
+            <article className="experience-item reveal">
+              <div className="experience-marker">
+                <div className="experience-logo">
+                  <img src="/assets/exp/gdsc.png" alt="Google Developer Student Club logo" />
+                </div>
+              </div>
+              <div className="experience-content">
+                <p className="experience-role">
+                  <strong>Lead Android Developer</strong>
+                </p>
+                <p className="experience-company">
+                  Google Developer Student Club (GDSC), AJCE - Kerala, India
+                </p>
+                <p className="experience-date">Sep 2023 - May 2024</p>
+                <ul className="experience-points">
+                  <li>
+                    Led a team of Android developers to plan, build, and deliver
+                    applications following industry-standard coding practices.
+                  </li>
+                  <li>
+                    Mentored junior developers on Android architecture, Kotlin best
+                    practices, and efficient use of Jetpack libraries.
+                  </li>
+                  <li>
+                    Organized technical workshops and hands-on sessions, improving
+                    team proficiency in Android development and DevOps tooling.
+                  </li>
+                </ul>
+              </div>
+            </article>
           </div>
         </section>
 
@@ -257,184 +379,44 @@ function App() {
           <div className="reveal">
             <BubbleText text="Projects" className="section-title" />
           </div>
+          <div className="projects-grid">
+            {projects.map((project) => (
+              <article className="project-showcase-card reveal" key={project.title}>
+                <div className="project-media-wrap">
+                  <img
+                    src={project.image || defaultProjectImage}
+                    alt={`${project.title} preview`}
+                    className="project-media"
+                  />
+                </div>
+                <h3 className="project-showcase-title">{project.title}</h3>
+                <p className="project-showcase-subtitle">{project.subtitle}</p>
+                <p className="project-showcase-description">{project.description}</p>
 
-          <div className="cards">
-            <article className="card span-6 reveal">
-              <div className="project-header">
-                <h3 className="project-title">
-                  GAIL India Fleet App - Government Project
-                </h3>
-                <small className="subtext">Flutter | iOS TestFlight Beta</small>
-              </div>
-              <ul className="project-list">
-                <li>
-                  Built a Flutter fleet operations app for monitoring CNG
-                  logistics, station activity, and route movement.
-                </li>
-                <li>
-                  Implemented secure role-based workflows and live
-                  map-visualization for multi-level operations teams.
-                </li>
-                <li>
-                  Added APIs, notifications, and report exports for real-time
-                  field and management visibility. TestFlight:{" "}
-                  <a
-                    href="https://testflight.apple.com/v1/invite/28da93f13e4847af85d09db7b60be05d835990509a7941c5acc944083b42c0f119303e0cf?ct=K2J53QC4V2&advp=10000&platform=ios"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Open Link
-                  </a>
-                </li>
-              </ul>
-              <div className="tags project-tags">
-                <span className="tag">Flutter</span>
-                <span className="tag">Google Maps</span>
-                <span className="tag">GovTech</span>
-              </div>
-            </article>
+                {project.links.length > 0 && (
+                  <div className="project-links">
+                    {project.links.map((link) => (
+                      <a
+                        key={link.href}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {link.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
 
-            <article className="card span-6 reveal">
-              <div className="project-header">
-                <h3 className="project-title">
-                  Agartala Property Tax Platform - e-Governance
-                </h3>
-                <small className="subtext">Flutter | GIS | Offline-First</small>
-              </div>
-              <ul className="project-list">
-                <li>
-                  Developed a Flutter platform for municipal tax surveys and
-                  digital field data collection.
-                </li>
-                <li>
-                  Integrated GIS maps (Google Maps + GeoServer) with offline
-                  sync using Isar for low-connectivity workflows.
-                </li>
-                <li>
-                  Added geo-tagged evidence capture, secure form flows, and
-                  Excel-based admin reporting modules.
-                </li>
-              </ul>
-              <div className="tags project-tags">
-                <span className="tag">Flutter</span>
-                <span className="tag">GeoServer</span>
-                <span className="tag">Isar</span>
-              </div>
-            </article>
-
-            <article className="card span-6 reveal">
-              <div className="project-header">
-                <h3 className="project-title">
-                  Bruma OS - Debian-Based Operating System
-                </h3>
-                <small className="subtext">Linux Distribution | GitHub</small>
-              </div>
-              <ul className="project-list">
-                <li>
-                  Built Bruma OS on Debian Testing with focus on customization
-                  and desktop experience refinement.
-                </li>
-                <li>
-                  Created a GNOME-centric UI with custom themes, wallpapers, and
-                  branded system identity components.
-                </li>
-                <li>
-                  Automated reproducible ISO builds with `live-build` and
-                  maintained repositories on GitHub.
-                </li>
-              </ul>
-              <div className="tags project-tags">
-                <span className="tag">Debian</span>
-                <span className="tag">GNOME</span>
-                <span className="tag">Live-Build</span>
-              </div>
-            </article>
-
-            <article className="card span-6 reveal">
-              <div className="project-header">
-                <h3 className="project-title">
-                  Vokabelly - German Vocabulary Learning App
-                </h3>
-                <small className="subtext">Flutter | Google Play</small>
-              </div>
-              <ul className="project-list">
-                <li>
-                  Developed and published a Flutter-based German vocabulary app
-                  for beginners on Google Play.
-                </li>
-                <li>
-                  Built lesson-based learning flow with TTS, streak reminders,
-                  and progress tracking.
-                </li>
-                <li>
-                  Implemented Riverpod-based state management, analytics charts,
-                  and reusable UI components. Google Play:{" "}
-                  <a
-                    href="https://play.google.com/store/apps/details?id=com.noelcore.german_words"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Open Link
-                  </a>
-                </li>
-              </ul>
-              <div className="tags project-tags">
-                <span className="tag">Flutter</span>
-                <span className="tag">Riverpod</span>
-                <span className="tag">EdTech</span>
-              </div>
-            </article>
-
-            <article className="card span-6 reveal">
-              <div className="project-header">
-                <h3 className="project-title">Zaburb Platform</h3>
-                <small className="subtext">
-                  Website | Google Play | App Store
-                </small>
-              </div>
-              <ul className="project-list">
-                <li>
-                  Developed and launched an on-demand safety and mobility
-                  platform focused on senior citizen security.
-                </li>
-                <li>
-                  Built end-to-end cross-platform mobile apps with Flutter and
-                  integrated Firebase + Razorpay.
-                </li>
-                <li>
-                  Managed website + app releases across Web, Google Play, and
-                  Apple App Store. Links:{" "}
-                  <a
-                    href="https://zaburb.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Open Link
-                  </a>{" "}
-                  | Google Play:{" "}
-                  <a
-                    href="https://play.google.com/store/apps/details?id=com.zaburb.customer&hl=en_IN"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Open Link
-                  </a>{" "}
-                  | App Store:{" "}
-                  <a
-                    href="https://apps.apple.com/in/app/zaburb/id6742676344"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Open Link
-                  </a>
-                </li>
-              </ul>
-              <div className="tags project-tags">
-                <span className="tag">Flutter</span>
-                <span className="tag">Firebase</span>
-                <span className="tag">Razorpay</span>
-              </div>
-            </article>
+                <div className="tags project-tags">
+                  {project.tags.map((tag) => (
+                    <span className="tag" key={`${project.title}-${tag}`}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            ))}
           </div>
         </section>
 
