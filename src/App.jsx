@@ -18,15 +18,12 @@ const rotatingQuotes = [
   '"Security is not a product, but a process." - Bruce Schneier'
 ];
 
-const defaultProjectImage = "/assets/img/image.png";
-
 const projects = [
   {
     title: "GAIL India Fleet App - Government Project",
     subtitle: "Flutter | iOS TestFlight Beta",
-    image: "/assets/proj/gail.jpg",
     description:
-      "Built a Flutter fleet operations app for monitoring CNG logistics, station activity, and route movement.",
+      "Built and maintained a production Flutter fleet operations app for monitoring CNG logistics, live station activity, and route movement across multiple operational zones. Implemented map-driven workflows, performance-focused UI states, and reliable API syncing so field teams could track assets faster and reduce reporting delays.",
     tags: ["Flutter", "Google Maps", "GovTech"],
     links: [
       {
@@ -38,27 +35,24 @@ const projects = [
   {
     title: "Agartala Property Tax Platform - e-Governance",
     subtitle: "Flutter | GIS | Offline-First",
-    image: "/assets/proj/agartala.jpg",
     description:
-      "Developed a Flutter platform for municipal tax surveys and digital field data collection.",
+      "Developed an offline-first Flutter platform for municipal tax surveys and on-ground property data capture with GIS-assisted workflows. Designed robust local persistence and sync reconciliation to keep survey progress safe in low-connectivity areas while improving completeness and auditability of city records.",
     tags: ["Flutter", "GeoServer", "Isar"],
     links: []
   },
   {
     title: "Bruma OS - Debian-Based Operating System",
     subtitle: "Linux Distribution | GitHub",
-    image: "/assets/proj/burma.png",
     description:
-      "Built Bruma OS on Debian Testing with focus on customization and desktop experience refinement.",
+      "Engineered Bruma OS on Debian Testing with focus on desktop usability, package curation, and a cleaner out-of-box developer experience. Customized system behavior, tuned default tooling, and refined release scripts to create a stable, lightweight distribution that is easier to install and iterate on.",
     tags: ["Debian", "GNOME", "Live-Build"],
     links: [{ label: "GitHub", href: "https://github.com/noeljabraham/bruma-packages" }]
   },
   {
     title: "Vokabelly - German Vocabulary Learning App",
     subtitle: "Flutter | Google Play",
-    image: "/assets/proj/vokabelly.png",
     description:
-      "Developed and published a Flutter-based German vocabulary app for beginners on Google Play.",
+      "Developed and published a Flutter-based German vocabulary app for beginners on Google Play with structured learning flows and spaced-repetition-friendly sessions. Optimized app startup, lesson interaction speed, and progress persistence to improve retention and daily usage consistency.",
     tags: ["Flutter", "Riverpod", "EdTech"],
     links: [
       {
@@ -70,9 +64,8 @@ const projects = [
   {
     title: "Zaburb Platform",
     subtitle: "Website | Google Play | App Store",
-    image: "/assets/proj/zaburb.webp",
     description:
-      "Developed and launched an on-demand safety and mobility platform focused on senior citizen security.",
+      "Built and launched an on-demand safety and mobility platform focused on senior citizen security across web and mobile channels. Delivered core flows including service booking, payment integration, real-time status visibility, and operational dashboards to support reliable emergency and assistance response.",
     tags: ["Flutter", "Firebase", "Razorpay"],
     links: [
       { label: "Website", href: "https://zaburb.com/" },
@@ -82,6 +75,35 @@ const projects = [
       },
       { label: "App Store", href: "https://apps.apple.com/in/app/zaburb/id6742676344" }
     ]
+  }
+];
+
+const getPrimaryProjectLink = (links) =>
+  links.find((link) => /github|source|website|web/i.test(link.label)) ?? links[0];
+
+const getPrimaryLinkLabel = (link) =>
+  link && /github|source/i.test(link.label) ? "View Source" : "View Project";
+
+const contactItems = [
+  {
+    label: "Email",
+    value: "noeljabraham2023@gmail.com",
+    href: "mailto:noeljabraham2023@gmail.com"
+  },
+  {
+    label: "LinkedIn",  
+    value: "linkedin/noeljabraham",
+    href: "https://www.linkedin.com/in/noeljabraham/"
+  },
+  {
+    label: "GitHub",
+    value: "github.com/noeljabraham",
+    href: "https://github.com/noeljabraham"
+  },
+  {
+    label: "Resume",
+    value: "Download CV",
+    href: resumeUrl
   }
 ];
 
@@ -374,34 +396,27 @@ function App() {
             <BubbleText text="Projects" className="section-title" />
           </div>
           <div className="projects-grid">
-            {projects.map((project) => (
+            {projects.map((project, index) => {
+              const primaryLink = getPrimaryProjectLink(project.links);
+              return (
               <article className="project-showcase-card reveal" key={project.title}>
-                <div className="project-media-wrap">
-                  <img
-                    src={project.image || defaultProjectImage}
-                    alt={`${project.title} preview`}
-                    className="project-media"
-                  />
+                <div className="project-showcase-meta">
+                  <span className="project-serial">{String(index + 1).padStart(2, "0")}</span>
+                  {primaryLink ? (
+                    <a
+                      className="project-source-link"
+                      href={primaryLink.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {getPrimaryLinkLabel(primaryLink)}
+                    </a>
+                  ) : (
+                    <span className="project-source-link is-muted">Private Project</span>
+                  )}
                 </div>
                 <h3 className="project-showcase-title">{project.title}</h3>
-                <p className="project-showcase-subtitle">{project.subtitle}</p>
                 <p className="project-showcase-description">{project.description}</p>
-
-                {project.links.length > 0 && (
-                  <div className="project-links">
-                    {project.links.map((link) => (
-                      <a
-                        key={link.href}
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {link.label}
-                      </a>
-                    ))}
-                  </div>
-                )}
-
                 <div className="tags project-tags">
                   {project.tags.map((tag) => (
                     <span className="tag" key={`${project.title}-${tag}`}>
@@ -409,43 +424,44 @@ function App() {
                     </span>
                   ))}
                 </div>
+                <div className="project-showcase-footer">
+                  <span>{project.subtitle}</span>
+                  {primaryLink ? (
+                    <a href={primaryLink.href} target="_blank" rel="noopener noreferrer">
+                      ↗
+                    </a>
+                  ) : (
+                    <span>•</span>
+                  )}
+                </div>
               </article>
-            ))}
+              );
+            })}
           </div>
         </section>
 
         <section id="contact">
-          <div className="reveal">
-            <BubbleText text="Contact" className="section-title" />
+          <div className="contact-head reveal">
+            <p className="contact-kicker">// LET'S CONNECT</p>
+            <h2 className="contact-title">Get In Touch</h2>
+            <p className="contact-intro">
+              Open to software engineering, mobile, full-stack, and cloud-focused
+              opportunities. Let&apos;s build secure and impactful products together.
+            </p>
           </div>
-          <p className="subtext reveal">Connect with me on:</p>
-          <div className="socials reveal">
-            <a
-              href="https://github.com/noeljabraham"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg"
-                alt="GitHub"
-              />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/noel-j-abraham-69412b1b0/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg"
-                alt="LinkedIn"
-              />
-            </a>
-            <a href="mailto:noeljabraham2023@gmail.com" target="_blank">
-              <img
-                src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg"
-                alt="Email"
-              />
-            </a>
+          <div className="contact-links reveal">
+            {contactItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-link-item"
+              >
+                <span className="contact-link-label">{item.label}</span>
+                <span className="contact-link-value">{item.value}</span>
+              </a>
+            ))}
           </div>
         </section>
       </main>
