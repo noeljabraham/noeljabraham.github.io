@@ -275,9 +275,7 @@ function App() {
           <div className="experience-timeline">
             <article className="experience-item reveal">
               <div className="experience-marker">
-                <div className="experience-logo">
-                  <img src="/assets/exp/stesalit.png" alt="Stesalit Systems Limited logo" />
-                </div>
+                <div className="experience-dot" aria-hidden="true" />
               </div>
               <div className="experience-content">
                 <p className="experience-role">
@@ -312,9 +310,7 @@ function App() {
 
             <article className="experience-item reveal">
               <div className="experience-marker">
-                <div className="experience-logo">
-                  <img src="/assets/exp/saburb.jpg" alt="Zaburb logo" />
-                </div>
+                <div className="experience-dot" aria-hidden="true" />
               </div>
               <div className="experience-content">
                 <p className="experience-role">
@@ -344,9 +340,7 @@ function App() {
 
             <article className="experience-item reveal">
               <div className="experience-marker">
-                <div className="experience-logo">
-                  <img src="/assets/exp/gdsc.png" alt="Google Developer Student Club logo" />
-                </div>
+                <div className="experience-dot" aria-hidden="true" />
               </div>
               <div className="experience-content">
                 <p className="experience-role">

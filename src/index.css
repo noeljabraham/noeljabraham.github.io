@@ -266,21 +266,24 @@ section {
 .experience-item {
   position: relative;
   display: grid;
-  grid-template-columns: 78px 1fr;
+  grid-template-columns: 30px 1fr;
   gap: 22px;
 }
 
 .experience-marker {
   position: relative;
   z-index: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .experience-marker::after {
   content: "";
   position: absolute;
-  top: 78px;
+  top: 16px;
   bottom: -34px;
-  left: 39px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 1px;
   background: color-mix(in oklab, var(--muted) 40%, transparent);
 }
@@ -289,25 +292,14 @@ section {
   display: none;
 }
 
-.experience-logo {
-  width: 78px;
-  height: 78px;
-  border-radius: 14px;
-  border: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
-  background: color-mix(in oklab, var(--card) 65%, transparent);
-  display: grid;
-  place-items: center;
-  font-size: 1.2rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  color: color-mix(in oklab, var(--text) 92%, #fff);
-}
-
-.experience-logo img {
-  width: 72%;
-  height: 72%;
-  object-fit: contain;
-  border-radius: 8px;
+.experience-dot {
+  width: 12px;
+  height: 12px;
+  margin-top: 4px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in oklab, var(--border) 70%, var(--brand) 30%);
+  background: color-mix(in oklab, var(--brand) 76%, var(--card) 24%);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--brand) 18%, transparent);
 }
 
 .experience-role {
@@ -681,21 +673,20 @@ h2.section-title {
   }
 
   .experience-item {
-    grid-template-columns: 62px 1fr;
+    grid-template-columns: 28px 1fr;
     gap: 16px;
   }
 
   .experience-marker::after {
-    top: 62px;
-    left: 31px;
+    top: 14px;
+    left: 50%;
     bottom: -26px;
   }
 
-  .experience-logo {
-    width: 62px;
-    height: 62px;
-    border-radius: 12px;
-    font-size: 1rem;
+  .experience-dot {
+    width: 11px;
+    height: 11px;
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--brand) 16%, transparent);
   }
 
   .experience-role {
@@ -845,11 +836,10 @@ h2.section-title {
     display: none;
   }
 
-  .experience-logo {
-    width: 52px;
-    height: 52px;
-    border-radius: 10px;
-    font-size: 0.88rem;
+  .experience-dot {
+    width: 10px;
+    height: 10px;
+    box-shadow: 0 0 0 2px color-mix(in oklab, var(--brand) 14%, transparent);
   }
 
   .experience-role {
