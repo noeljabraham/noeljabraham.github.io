@@ -1,22 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Typewriter } from "@/components/ui/typewriter";
-import { Button } from "@/components/ui/button";
-import { BlurTextEffect } from "@/components/ui/blur-text-effect";
 import { BubbleText } from "@/components/ui/bubble-text";
-import { TextScramble } from "@/components/ui/text-scramble";
-import { SlideTabs } from "@/components/ui/slide-tabs";
 
 const resumeUrl =
   "https://drive.google.com/file/d/1gL-2coObsURZEyCPAO6yxNGt837F7uaU/view?usp=sharing";
-
-const rotatingQuotes = [
-  '"Success is not final, failure is not fatal: it is the courage to continue that counts." - Winston Churchill',
-  '"First, solve the problem. Then, write the code." - John Johnson',
-  '"The best way to predict the future is to invent it." - Alan Kay',
-  '"Any fool can write code that a computer can understand. Good programmers write code that humans can understand." - Martin Fowler',
-  '"It always seems impossible until it is done." - Nelson Mandela',
-  '"Security is not a product, but a process." - Bruce Schneier'
-];
 
 const projects = [
   {
@@ -91,7 +78,7 @@ const contactItems = [
     href: "mailto:noeljabraham2023@gmail.com"
   },
   {
-    label: "LinkedIn",  
+    label: "LinkedIn",
     value: "linkedin/noeljabraham",
     href: "https://www.linkedin.com/in/noeljabraham/"
   },
@@ -107,36 +94,16 @@ const contactItems = [
   }
 ];
 
-const getPreferredTheme = () => {
-  if (typeof window === "undefined") {
-    return "light";
-  }
-
-  const savedTheme = window.localStorage.getItem("theme");
-  if (savedTheme === "light" || savedTheme === "dark") {
-    return savedTheme;
-  }
-
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-};
+const certifications = [
+  "Google Cybersecurity Professional Certificate (GCPC)",
+  "Certified Ethical Hacker (CEH) - Pearson",
+  "Oracle Cloud Infrastructure Foundations",
+  "Python Full Stack Development - QSpiders",
+  "Introduction to Cybersecurity - Cisco",
+  "TryHackMe - Advent of Cyber"
+];
 
 function App() {
-  const [quoteIndex, setQuoteIndex] = useState(0);
-  const [theme, setTheme] = useState(getPreferredTheme);
-
-  const handleResumeClick = () => {
-    window.open(resumeUrl, "_blank", "noopener,noreferrer");
-  };
-
-  const handleThemeToggle = () => {
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
-  };
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", theme === "dark");
-    window.localStorage.setItem("theme", theme);
-  }, [theme]);
-
   useEffect(() => {
     const revealEls = document.querySelectorAll(".reveal");
 
@@ -166,50 +133,20 @@ function App() {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setQuoteIndex((prev) => (prev + 1) % rotatingQuotes.length);
-    }, 6000);
-
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <>
-      <header>
-        <div className="container nav">
-          <div className="logo" aria-label="logo">
-            <span className="dot" aria-hidden="true"></span>
-            <TextScramble as="span" className="logo-scramble" duration={1} speed={0.03}>
-              Noel J Abraham
-            </TextScramble>
-          </div>
-          <nav>
-            <SlideTabs />
+      <header className="simple-header">
+        <div className="container simple-nav">
+          <a className="simple-brand" href="#home">
+            Noel J Abraham
+          </a>
+          <nav className="simple-links" aria-label="Primary navigation">
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#contact">Contact</a>
           </nav>
-          <div className="nav-actions">
-            <Button
-              onClick={handleResumeClick}
-              className="min-w-[180px]"
-              aria-label="Download Resume"
-            >
-              Download Resume
-            </Button>
-            <button
-              type="button"
-              onClick={handleThemeToggle}
-              className={`theme-switch ${theme === "dark" ? "is-dark" : ""}`}
-              aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
-              aria-pressed={theme === "dark"}
-            >
-              <span className="theme-switch-track" aria-hidden="true">
-                <span className="theme-switch-thumb"></span>
-              </span>
-              <span className="theme-switch-text">
-                {theme === "dark" ? "Dark" : "Light"}
-              </span>
-            </button>
-          </div>
         </div>
       </header>
 
@@ -219,9 +156,9 @@ function App() {
             {/* <div className="kicker">
               Software Engineer | AI Generalist | Cybersecurity
             </div> */}
-            <h1 className="hero-title">Hi all, I'm Noel 👋</h1>
+            <h1 className="hero-title">Hi all, I'm Noel</h1>
             <p className="hero-subtext">
-              A passionate Full Stack Software Developer 🚀 having an experience
+              A passionate Full Stack Software Developer having an experience
               of building Web and Mobile applications with Flutter / Javascript
               / Reactjs / Nodejs / React Native , PHP, Python(FastApi | Flask)
               and some other cool libraries and frameworks.
@@ -246,11 +183,35 @@ function App() {
               />
             </p>
 
-            <p className="quote-blur">
-              <BlurTextEffect className="quote-blur-text">
-                {rotatingQuotes[quoteIndex]}
-              </BlurTextEffect>
-            </p>
+            <div className="hero-cta">
+              <a href="#contact" className="hero-cta-btn primary">
+                Get in Touch
+              </a>
+              <a
+                href="https://www.linkedin.com/in/noeljabraham/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hero-cta-btn"
+              >
+                LinkedIn
+              </a>
+              <a
+                href="https://github.com/noeljabraham"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hero-cta-btn"
+              >
+                GitHub
+              </a>
+              <a
+                href={resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hero-cta-btn"
+              >
+                Download Resume
+              </a>
+            </div>
           </div>
 
           <div>
@@ -428,15 +389,31 @@ function App() {
                   <span>{project.subtitle}</span>
                   {primaryLink ? (
                     <a href={primaryLink.href} target="_blank" rel="noopener noreferrer">
-                      ↗
+                      {"->"}
                     </a>
                   ) : (
-                    <span>•</span>
+                    <span>-</span>
                   )}
                 </div>
               </article>
               );
             })}
+          </div>
+        </section>
+
+        <section id="certifications">
+          <div className="reveal">
+            <BubbleText text="Certifications" className="section-title" />
+          </div>
+          <div className="certifications-grid">
+            {certifications.map((certification, index) => (
+              <article className="certification-card reveal" key={certification}>
+                <span className="certification-index">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <p className="certification-text">{certification}</p>
+              </article>
+            ))}
           </div>
         </section>
 
