@@ -62,6 +62,23 @@ const projects = [
       },
       { label: "App Store", href: "https://apps.apple.com/in/app/zaburb/id6742676344" }
     ]
+  },
+  {
+    title: "Liver Disease Prediction App",
+    subtitle: "Python | scikit-learn | Streamlit",
+    description:
+      "Built a machine learning web app to predict liver disease likelihood from patient medical data. Cleaned and preprocessed the dataset, trained a Random Forest classifier, and integrated the serialized model into an interactive Streamlit interface for real-time predictions with probability scoring.",
+    tags: ["Python", "scikit-learn", "Streamlit"],
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/noeljabraham/Liver-Disease-Prediction"
+      },
+      {
+        label: "Website",
+        href: "https://liver-disease-prediction-noel.streamlit.app/"
+      }
+    ]
   }
 ];
 
