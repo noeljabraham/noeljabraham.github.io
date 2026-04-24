@@ -3,7 +3,7 @@ import { Typewriter } from "@/components/ui/typewriter";
 import { BubbleText } from "@/components/ui/bubble-text";
 
 const resumeUrl =
-  "https://drive.google.com/file/d/1gL-2coObsURZEyCPAO6yxNGt837F7uaU/view?usp=sharing";
+  "https://drive.google.com/drive/folders/1F1GMt4gN_XKCpLNXYf1O5XUo3WO4GNgx?usp=sharing";
 
 const projects = [
   {
