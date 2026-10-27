@@ -1,3 +1,5 @@
+import retroImage from "../assets/img/retro-img.png";
+
 const projects = [
   {
     title: "SIEM Log Monitoring Lab",
@@ -18,7 +20,7 @@ const projects = [
     type: "Multi-cloud security posture",
     description: "Built plugin-based checks for AWS, Azure, and GCP misconfigurations mapped to CIS, SOC 2, HIPAA, and PCI-DSS, with risk scoring, drift detection, and Terraform remediation.",
     tags: ["AWS IAM", "Rust", "React", "PostgreSQL"],
-    links: []
+    links: [{ label: "GitHub", href: "https://github.com/noeljabraham/Cloud-Security-Compliance-Dashboard" }]
   },
   {
     title: "LearnCyber",
@@ -133,6 +135,11 @@ function App() {
           {/* Portrait intentionally hidden for the current minimal layout.
           <img className="hero-image" src="/assets/img/image.png" alt="Noel J Abraham" />
           */}
+
+          <figure className="hero-portrait">
+            <img src={retroImage} alt="Pixel-art portrait of Noel J Abraham" />
+            <figcaption>Noel J Abraham · Cybersecurity professional</figcaption>
+          </figure>
 
           <div className="hero-note" aria-label="Current focus">
             <span className="status-dot" aria-hidden="true" />

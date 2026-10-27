@@ -73,7 +73,10 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
   padding-block: clamp(96px, 14vw, 180px) 64px;
 }
 
-.hero-copy { max-width: 900px; }
+.hero-copy {
+  grid-row: 1 / span 2;
+  max-width: 900px;
+}
 
 .eyebrow {
   margin: 0 0 28px;
@@ -103,6 +106,28 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
   margin: 36px 0 0;
   color: var(--muted);
   font-size: clamp(1rem, 1.5vw, 1.2rem);
+}
+
+.hero-portrait {
+  margin: 0;
+}
+
+.hero-portrait img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border: 1px solid var(--line);
+  object-fit: cover;
+  object-position: center 28%;
+}
+
+.hero-portrait figcaption {
+  margin-top: 10px;
+  color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
@@ -260,7 +285,9 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 .footer p { margin: 0; }
 
 @media (max-width: 900px) {
-  .hero { min-height: auto; grid-template-columns: 1fr; }
+  .hero { min-height: auto; grid-template-columns: 1fr; row-gap: 36px; }
+  .hero-copy { grid-row: auto; }
+  .hero-portrait { max-width: 280px; }
   .hero-note { max-width: 360px; }
   .about-grid { grid-template-columns: 1fr; }
   .about-lead { max-width: 760px; }
